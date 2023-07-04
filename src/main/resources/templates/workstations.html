@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Workstations</title>
+  <style>
+  ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: white;
+  margin-left:30px;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 16px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #184D94;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #184D94;
+  text-decoration: underline;
+}
+    .button {
+    border-radius: 4px;
+    background-color:#184D94;
+  border: none;
+  color: white;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    .row1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+    .column1{
+    float: left;
+  width: 50%;
+  }
+  .column2{
+    float: left;
+  width: 25%;
+  }
+
+
+    #parent1 { white-space: nowrap; }
+.child1 { display: inline-block; }
+    * {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+margin-left:100px;
+<!--position:left;-->
+<!--margin-top:-30px;-->
+
+
+
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  margin-left:120px;
+  margin-top: -50px;
+  color: white;
+  font-size: 15px;
+  border-radius: 0 3px 3px 0;
+<!--  user-select: none;-->
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  left:330px;
+  border-radius: 1px 0 0 1px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+text-color:#8E8C8C;
+
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 1px 8px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+<!--  opacity: 0.6;-->
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+    .arrow {
+  border: solid #8E8C8C;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-left:80px;
+  margin-top:10px;
+}
+        #parent { white-space: nowrap; }
+.child { display: inline-block; }
+* {
+  box-sizing: border-box;
+}
+
+.column {
+
+  width: 33.33%;
+  padding: 5px;
+  width: 20%; /* Four links of equal widths */
+  text-align: center;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+
+}
+#container {
+  text-align: justify;
+}
+
+
+.navbar {
+  width: 100%;
+  background-color: #184D94;
+  overflow: auto;
+}
+
+.navbar a {
+  float: none;
+  padding: 1px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 10%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+background-color:white;
+}
+
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+.navbar a.active1 {
+  color:#142F6E;
+  background-color: white;
+}
+
+}
+
+
+    </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>LaptopOnRent</title>
+  <div id="parent">
+    <div class="child">
+      <h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 30px; margin-bottom: 20px">
+        LAPTOPONRENT.com
+      </h2></div>
+    <div class="child" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
+    <div class="child">
+      <img th:src="@{/images/Laptoponrentlogo.jpeg}" alt="Ulka Enterprises" style="width:8rem;margin-left:450px;mix-blend-mode:multiply;"/>
+    </div>
+    <hr style="margin-top:-1px">
+  </div>
+
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<!--<a th:href="@{/}"><i class="arrow left"></i></a>-->
+<ul class="breadcrumb">
+  <li><a th:href="@{/}">Home</a></li>
+  <!--    <li><a th:href="@{/laptops}">Laptops</a></li>-->
+  <li style="color:black;">Workstations</li>
+</ul>
+<div class="row">
+  <div class="column1">
+    <div class="container">
+
+      <!-- Full-width images with number text -->
+
+      <div class="mySlides">
+        <div class="numbertext"></div>
+        <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=245&qlt=100,1&resMode=sharp2&size=245,402&chrss=full" style="width:14rem;margin-left:170px;margin-top:20px;">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext"></div>
+        <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-2.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=245&qlt=100,1&resMode=sharp2&size=245,402&chrss=full" style="width:14rem;margin-left:170px;margin-top:20px;">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext"></div>
+        <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-5.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=244&qlt=100,1&resMode=sharp2&size=244,402&chrss=full" style="width:14rem;margin-left:170px;margin-top:20px;">
+      </div>
+
+<!--      <div class="mySlides">-->
+<!--        <div class="numbertext"></div>-->
+<!--        <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-7.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=561&qlt=100,1&resMode=sharp2&size=561,402&chrss=full" style="width:18rem;margin-left:140px;margin-top:20px;">-->
+<!--      </div>-->
+
+<!--      <div class="mySlides">-->
+<!--        <div class="numbertext"></div>-->
+<!--        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/105d2c79-321b-4f23-8927-e0dc4850bef022291031.jpg" style="width:18rem;margin-left:140px;margin-top:-20px;">-->
+<!--      </div>-->
+
+
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+      <!-- Thumbnail images -->
+      <div class="row">
+        <div class="column">
+          <img class="demo cursor" src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=245&qlt=100,1&resMode=sharp2&size=245,402&chrss=full" style="width:3rem;margin-left:220px;border:1px solid #E8E8E8;border-radius: 5px;" onclick="currentSlide(1)">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-2.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=245&qlt=100,1&resMode=sharp2&size=245,402&chrss=full" style="width:3rem;margin-left:130px;border:1px solid #E8E8E8;border-radius: 5px;" onclick="currentSlide(2)">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/workstations/fixed-workstations/precision/3260/media-gallery/workstation-precision-3260-gallery-5.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=244&qlt=100,1&resMode=sharp2&size=244,402&chrss=full" style="width:3rem;margin-left:-15px;border:1px solid #E8E8E8;border-radius: 5px;" onclick="currentSlide(3)" >
+        </div>
+<!--        <div class="column">-->
+<!--          <img class="demo cursor" src="https://d2xamzlzrdbdbn.cloudfront.net/products/e2b85f64-63de-4830-9bb3-a70e8a024fbd22291031.jpg" style="width:4rem;margin-left:-300px;border:1px solid #E8E8E8;border-radius: 5px;" onclick="currentSlide(4)">-->
+<!--        </div>-->
+<!--        <div class="column">-->
+<!--          <img class="demo cursor" src="https://d2xamzlzrdbdbn.cloudfront.net/products/105d2c79-321b-4f23-8927-e0dc4850bef022291031.jpg" style="width:4rem;margin-left:-440px;border:1px solid #E8E8E8;border-radius: 5px;" onclick="currentSlide(5)" >-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+  <div class="column1">
+    <h3 style="color:#000000;font-family:Open Sans Semibold;margin-left:-15px">WorkStations</h3>
+    <br>
+    <h4 style="color:#184D94;font-family:Open Sans Semibold;margin-left:-15px">Monthly Rent - ₹ 3549/month</h4>
+    <br>
+    <div class="row">
+      <div class="column2">
+        <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">Size</h5>
+      </div>
+      <br><br>
+      <div class="column2" style="margin-left:-80px;">
+        <select name="size"   style="background-color:#B2B2B2; color:white;padding: 0px 32px;">
+          <option value="13 inch">13 inch</option>
+          <option value="14 inch">14 inch</option>
+          <option value="16 inch">16 inch</option>
+        </select>
+      </div>
+      <div class="column2">
+        <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">OS</h5>
+      </div>
+      <div class="column2" style="margin-left:-80px;">
+        <select name="size"   style="background-color:#B2B2B2; color:white;padding: 0px 32px;">
+          <option value="Sonoma">Sonoma</option>
+          <option value="Big Sur">Big Sur</option>
+          <option value="Catalina">Catalina</option>
+        </select>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class = "column2">
+        <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">RAM</h5>
+      </div>
+      <div class="column2" style="margin-left:-80px;">
+        <select name="size" id="size"  style="background-color:#B2B2B2; color:white;padding: 0px 38px;">
+          <option value="4 GB">4 GB</option>
+          <option value="8 GB">8 GB</option>
+          <option value="16 GB">16 GB</option>
+        </select>
+      </div>
+      <div class="column2">
+        <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">Processor</h5>
+      </div>
+      <div class="column2" style="margin-left:-80px;">
+        <select name="size"   style="background-color:#B2B2B2; color:white; padding: 0px 54px;">
+          <option value="i5">i5</option>
+          <option value="i7">i7</option>
+          <option value="i9">i9</option>
+        </select>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="column2">
+        <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">Storage</h5>
+      </div>
+      <div class="column2"style="margin-left:-80px;">
+        <select name="size"   style="background-color:#B2B2B2; color:white;padding: 0px 32px;">
+          <option value="i5">128 GB</option>
+          <option value="i7">256 GB</option>
+          <option value="i9">512 GB</option>
+        </select>
+
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="column2">
+        <a href="https://api.whatsapp.com/send?phone=919922001413&text= Hello, I want to enquire about workstations!"><button class="button">Know More
+        </button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="column1" style="margin-top: 20px;background-color:#F6F7F8;">
+    <img th:src="@{/images/IMG_4446.jpg}" alt="Scan Code" style="width:10rem;margin-left:230px;margin-top:80px;"/>
+    <h6 style="margin-left:230px;color:#707070;">Google Pay QR Code</h6>
+  </div>
+  <div class="column1" style="margin-top: 20px;background-color:#F6F7F8;">
+    <h5 style="margin-top:20px;color:#184D94;font-family:Open Sans Bold;margin-left:-15px;"><u>Product Details</u></h5>
+    <p style="margin-top:15px;margin-left:-15px;color:#707070;font-family:Open Sans Regular">Your gateway to power-packed performance and ideas!<br>
+      MacBook Pro is bundled with seventh-generation Intel Core i5 processor<br>
+      to ensure that wherever you go, you function at your highest potential and speed.<br>
+      This 13.3-inch display laptop is one of the thinnest, brightest and most intelligent!</p>
+    <p style="margin-left:-15px;color:#707070;font-family:Open Sans Regular">
+      Dimensions<br>
+      0.4"H x 11.96"W x 7.87"D
+    </p>
+    <p style="margin-left:-15px;color:#707070;font-family:Open Sans Regular">
+      Safety & Usage<br>
+      Avoid touching the workstation with dirty/ oily hands.<br>
+      Keep your workstation locked to protect your data.
+    </p>
+  </div>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+</body>
+</html>

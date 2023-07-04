@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <style>
+   ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #1F5BAA;
+  margin-left:30px;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 16px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: white;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: white;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+     .arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-left:80px;
+  margin-top:10px;
+}
+       .button {
+    border-radius: 6px;
+    background-color:#184D94;
+  border: none;
+  color: white;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+     #parent { white-space: nowrap; }
+.child { display: inline-block; }
+ .column {
+  float: left;
+  width: 20%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+  .card{
+  box-shadow: 0 4px 8px 0 white;
+  transition: 0.3s;
+  width: 25%;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 white;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+
+
+    </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>LaptopOnRent</title>
+  <div id="parent" style="background-color:white;">
+    <div class="child"> <h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 50px; margin-bottom: 20px">
+      LAPTOPONRENT.com
+    </h2>
+    </div>
+    <div class="child" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES
+    </div>
+    <div class="child">
+      <img th:src="@{/images/Laptoponrentlogo.jpeg}" alt="Ulka Enterprises" style="width:8rem;margin-left:450px;mix-blend-mode:multiply;"/>
+    </div>
+    <hr style="margin-top:20px">
+  </div>
+
+</head>
+<body style="background-color:#1F5BAA;">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<!--<a th:href="@{/}"><i class="arrow left"></i></a>-->
+<ul class="breadcrumb">
+  <li><a th:href="@{/}">Home</a></li>
+  <!--    <li><a th:href="@{/laptops}">Laptops</a></li>-->
+  <li style="color:#7BB4FF;">Devices</li>
+</ul>
+
+<h2 style="font-family:Open Sans Bold;text-align:center;color:white;margin-top:50px;margin-bottom:80px;">iPad/iPhone</h2>
+<div class="row">
+  <div class="column" style="margin-left:420px;">
+    <a style="text-decoration: none" th:href="@{/}">
+      <div class="card" style="margin-left:30px;" >
+        <img th:src="@{/images/iphone-bg.png}" alt="macbook Laptop" style="width:16rem;margin-top:20px;margin-left:10px;"/>
+        <div class="container">
+          <h3 style="text-align:center;color:black;"><b>iPhone</b></h3>
+          <p style="text-align:center;color:#142F6E;">Monthly Rent Starting at Rs 2000/-</p>
+          <a th:href = "@{/}"><button class="button" style="cursor:pointer;margin-top:1px;margin-left:40px;margin-bottom:30px">View Details</button></a>
+        </div>
+      </div></a>
+  </div>
+  <div class="column" style="margin-left:60px;">
+    <a style="text-decoration: none" th:href="@{/}">
+      <div class="card" style="cursor:pointer;" >
+        <img th:src="@{/images/ipad-bg.png}" alt="iPad" style="width:14rem;margin-top:20px;margin-left:40px;"/>
+        <div class="container">
+          <h3 style="text-align:center;margin-top:15px;color:black;"><b>iPad</b></h3>
+          <p style="text-align:center;color:#142F6E;">Monthly Rent Starting at Rs<br> 3000/-</p>
+          <a th:href = "@{/}"><button class="button" style="margin-top:-1px;margin-left:50px;margin-bottom:38px">View Details</button></a>
+        </div>
+      </div></a>
+  </div>
+</div>
+</body>
+</html>
