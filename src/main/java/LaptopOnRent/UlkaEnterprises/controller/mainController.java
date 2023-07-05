@@ -1,7 +1,12 @@
 package LaptopOnRent.UlkaEnterprises.controller;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+
+import java.io.IOException;
 
 @Controller
 public class mainController {
@@ -41,4 +46,16 @@ public class mainController {
         return "Devices";
 
     }
+    @GetMapping("/admin")
+    public String showAdminPage(){
+        return "admin";
+
+    }
+    @GetMapping("/redirect")
+    public void getRedirect(HttpServletResponse resp, HttpServletRequest request) throws IOException {
+       if (request.isUserInRole("ROLE_ADMIN")) {
+            resp.sendRedirect("/admin");
+        }
+    }
+
 }
