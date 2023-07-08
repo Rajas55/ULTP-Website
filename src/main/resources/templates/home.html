@@ -197,13 +197,21 @@
         </div>
     </div>
     <div class="twocolumn1">
-       <h5 style="color:white; margin-left:100px;"><br>Specifications</h5>
-        <p style="color:white;">HP 840 G2 at an effective price of Rs 20,000/-<br>Original Charger<br>Free Laptop Bag Included</p>
-        <a href="https://api.whatsapp.com/send?phone=919370699130&text= Hello, I want to enquire about laptops"><button class="button">Know More
-        </button></a>
-    </div>
+       <h5 style="color:white; "><br>Specifications</h5>
+        <p style="color:white;">
+            <th:block th:each="offer_text:${text}">
+                <td th:text="${offer_text.offer_head}" />
+                <br>
+                <td th:text="${offer_text.offer_price}"/>
+                <br>
+                <td th:text="${offer_text.offer_body}"/>
+            </th:block>
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=919370699130&text= Hello, I want to enquire about laptops">
+            <button style="margin-left:0px;" class="button">Know More</button></a>
+                    </div>
 
-</div>
+                </div>
 
-</body>
-</html>
+                </body>
+                </html>
