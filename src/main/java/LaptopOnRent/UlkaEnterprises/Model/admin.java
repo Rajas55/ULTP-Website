@@ -1,11 +1,8 @@
 package LaptopOnRent.UlkaEnterprises.Model;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.relational.core.sql.In;
-
+@Builder
 @Getter // Just adding lombok dependency you can avoid the boilerplate codes for ex. getters and setters.
 @Setter
 @AllArgsConstructor
@@ -26,6 +23,8 @@ public class admin {
     private String offer_price;
     @Column(name = "offer_body",nullable = true)
     private String offer_body;
+    @Column(name = "Photo1",nullable = true)
+    private String photo;
 
     @Override
     public String toString() {
@@ -34,6 +33,8 @@ public class admin {
                 ", offerT='" + offer_head + '\'' +
                 ", offerP='" + offer_price + '\'' +
                 ", offerB='" + offer_body + '\'' +
+                ", offerB='" + photo + '\'' +
                 '}';
     }
+
 }

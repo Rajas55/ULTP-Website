@@ -30,93 +30,41 @@
 <!--<form style="margin-left:60px" action="">-->
 <!--    <input type="file" id="fileImage" name="fileImage" accept="image/png, image/jpeg, image/jpg"/>-->
 <br>
-<!--    <img id="thumbnail" alt="photo preview"/>-->
-<!--    <input type="submit">-->
-<!--</form>-->
-<!--<script type="text/javascript">-->
-<!--    $(document).ready(function() {-->
-<!--    $('#fileImage').change(function() {-->
-<!--    showImageThumbnail(this);-->
-<!--    });-->
-<!--    }-->
-<!--    function showImageThumbnail(fileInput){-->
-<!--    file = fileInput.files[0];-->
-<!--    reader= new FileReader();-->
-<!--    reader.onload = function(e){-->
-<!--    $('#thumbnail').attr('src',e.target.result);-->
-<!--    };-->
-<!--    reader.readAsDataURL(file);-->
-<!--    }-->
 
-<!--&lt;!&ndash;</script>&ndash;&gt;-->
-<!--<form th:action="@{/admin/save}" method="post">-->
-<!--    <label>Offers Text</label>-->
-<!--    <input type="text">-->
-<!--    <input type="submit" value="Submit">-->
-
-<!--<form th:action="@{/admin/save}" method="post" th:object="${admin}"-->
-<form th:action="@{/admin/save}" method="post" th:object="${admin}"
+<form th:action="@{/admin/save/photo}" method="post" th:object="${admin}"
+      enctype="multipart/form-data"
  style="max-width:500px; margin: 0 auto; margin-left:30px;">
     <div class="border border-secondary rounded p-3">
         <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Offers Heading</label>
                 <div class="col-sm-8" style="margin-top:10px;">
                     <input type="hidden" th:field="*{id}" required>
-
-
                    <input type="text" th:field="*{offer_head}" required>
 
-<!--                    <td>[[${admin.offer_head}]]</td>-->
-
-
-
-                    <!--               <input type="text" th:field="*{offer_head}" class="form-control" placeholder=" Ex. Macbook Air M1 8gb/256gb" required/>-->
                 </div>
                 <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Price</label>
                 <div class="col-sm-8" style="margin-top:35px;">
                     <input type="text" th:field="*{offer_price}" required>
-                    <!--               <input type="text" th:field="*{offer_head}" class="form-control" placeholder=" Ex. at a price of Rs 20,000/-" required/>-->
 
                 </div>
                 <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Body</label>
                 <div class="col-sm-8" style="margin-top:40px;">
                     <input type="text" th:field="*{offer_body}" required>
-
-                    <!--                <input type="text" th:field="*{offer_head}" class="form-control" placeholder=" Ex. with charger and a laptop bag" required/>-->
-                    <!--                <button th:href="@{'/admin/edit/'+ ${offer_text.text}}" class="btn btn-primary m-2">Edit</button>-->
                 </div>
+            <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Photo 1</label>
+            <div class="col-sm-8" style="margin-top:40px;">
+                <input type="file" name="photo1" id="photo1" accept="image/png, image/jpg, image/jpeg">
 
 
-            <a  style="margin-left:170px;margin-top:20px;"> <button type="submit" class="btn btn-primary">Save</button> </a>
+
+        </div>
+            <a  style="margin-left:170px;margin-top:30px;"> <button type="submit" class="btn btn-primary">Save</button> </a>
+
         </div>
     </div>
-</form>
-<!--</form>-->
-<!--<table>-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>-->
-<!--            Offers Text-->
-<!--        </th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <th:block th:each="admin:${showHead}">-->
-<!--        <tr>-->
-<!--            <td>-->
-<!--                [[${admin}]]-->
-<!--            </td>-->
-<!--        </tr>-->
 
-<!--    </th:block>-->
-<!--    </tbody>-->
-<!--</table>-->
-<!--<th:block th:each="offer_text:${text}">-->
-<!--    <td th:text="${offer_text.offer_head}" />-->
-<!--    <br>-->
-<!--    <td th:text="${offer_text.offer_price}"/>-->
-<!--    <br>-->
-<!--    <td th:text="${offer_text.offer_body}"/>-->
-<!--</th:block>-->
+</form>
+
+
 </body>
 </html>
