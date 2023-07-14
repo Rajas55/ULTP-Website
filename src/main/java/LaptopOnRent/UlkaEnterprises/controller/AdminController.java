@@ -1,5 +1,6 @@
 package LaptopOnRent.UlkaEnterprises.controller;
 
+import LaptopOnRent.UlkaEnterprises.FileUploadUtil;
 import LaptopOnRent.UlkaEnterprises.Model.admin;
 import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
 import LaptopOnRent.UlkaEnterprises.Service.AdminService;
@@ -41,26 +42,31 @@ public class AdminController {
 //        return "redirect:/admin";
 //
 //    }
-    @PostMapping("/admin/save/photo")
-    public String SaveData(@ModelAttribute(name = "admin") admin admin, RedirectAttributes redirectAttributes, @RequestParam("photo1")
-                              MultipartFile multipartFile) throws IOException{
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        admin.setPhoto(fileName);
-         admin  savedPhoto = service.save(admin);
-         String uploadDir = "/Users/rajasyardi/UlkaEnterprises/user-photos/" + savedPhoto.getId();
-          Path uploadPath = Paths.get(uploadDir);
-          if (!Files.exists(uploadPath )){
-              Files.createDirectories(uploadPath);
-          }
-          try (InputStream inputStream = multipartFile.getInputStream()){
-              Path filePath = uploadPath.resolve(fileName);
-              Files.copy(inputStream,filePath,StandardCopyOption.REPLACE_EXISTING);
-          } catch (IOException e){
-              throw new IOException("File Not Saved");
-          }
-        redirectAttributes.addFlashAttribute("message","The data has been saved successfully! It will be updated on the website shortly.");
-        return "redirect:/admin";
-    }
+
+
+//    @PostMapping("/admin/save")
+//    public String SaveData(@ModelAttribute(name = "admin") admin admin, RedirectAttributes redirectAttributes, @RequestParam("photo1")
+//                              MultipartFile multipartFile) throws IOException{
+//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//        admin.setPhoto(fileName);
+//         admin  savedPhoto = service.save(admin);
+//         String uploadDir = "/Users/rajasyardi/UlkaEnterprises/user-photos/" + savedPhoto.getId();
+//          Path uploadPath = Paths.get(uploadDir);
+//          if (!Files.exists(uploadPath )){
+//              Files.createDirectories(uploadPath);
+//          }
+//          try (InputStream inputStream = multipartFile.getInputStream()){
+//              Path filePath = uploadPath.resolve(fileName);
+//              Files.copy(inputStream,filePath,StandardCopyOption.REPLACE_EXISTING);
+//          } catch (IOException e){
+//              throw new IOException("File Not Saved");
+//          }
+//        redirectAttributes.addFlashAttribute("message","The data has been saved successfully! It will be updated on the website shortly.");
+//        return "redirect:/admin";
+//    }
+
+
+
 //    @PostMapping("/admin/save/text")
 //    public String SaveOfferH(@ModelAttribute(name = "admin") admin admin, RedirectAttributes redirectAttributes) throws IOException{
 //        service.save(admin);
@@ -68,12 +74,43 @@ public class AdminController {
 //        return "redirect:/admin";
 //    }
 //
-    @GetMapping({"/"})
-    public ModelAndView getHomeText() {
-        ModelAndView mav = new ModelAndView("home");
-        mav.addObject("text", adminRepository.getText(1));
-        return mav;
+//
+@PostMapping("/admin/save")
+    public String SaveData(@ModelAttribute(name = "admin") admin admin, RedirectAttributes redirectAttributes,
+                           @RequestParam("mainImage") MultipartFile mainMultipartFile,
+                           @RequestParam("extraImage") MultipartFile [] extraMultipartFiles) throws IOException{
+        String mainImageName = StringUtils.cleanPath(mainMultipartFile.getOriginalFilename());
+        admin.setPhoto(mainImageName);
+        int count = 0;
+        for (MultipartFile extraMultipart : extraMultipartFiles){
+            String extraImageName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
+           if (count == 0) admin.setPhoto1(extraImageName);
+            if (count == 1) admin.setPhoto2(extraImageName);
+            if (count == 2) admin.setPhoto3(extraImageName);
+
+            count++;
+        }
+         admin savedProduct =  service.save(admin);
+        String uploadDir = "/Users/rajasyardi/UlkaEnterprises/src/main/resources/static/images/" + savedProduct.getId();
+         FileUploadUtil.saveFile(uploadDir,mainMultipartFile,mainImageName);
+
+    for (MultipartFile extraMultipart : extraMultipartFiles){
+        String fileName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
+        FileUploadUtil.saveFile(uploadDir,extraMultipart,fileName);
+
     }
+
+    redirectAttributes.addFlashAttribute("message","The data has been saved successfully! It will be updated on the website shortly.");
+        return "redirect:/admin";
+    }
+
+
+//    @GetMapping({"/"})
+//    public ModelAndView getHomeText(Model model) {
+//        ModelAndView mav = new ModelAndView("home");
+//        mav.addObject("text", adminRepository.getText(1));
+//        return mav;
+//    }
     @GetMapping("/admin")
     public String showList(Model model){
         List<admin> adminList = service.listAll();
@@ -81,11 +118,20 @@ public class AdminController {
         return "admin";
 
     }
+    @GetMapping("/")
+    public String showHP(Model model){
+        List<admin> adminList = service.listAll();
+        model.addAttribute("aList",adminList);
+        return "home";
+
+    }
     @GetMapping("/admin/edit/{id}")
     public String showEditPage(@PathVariable("id")Integer id,Model model){
             try {
                admin admins =  service.get(id);
                 model.addAttribute("admin",admins);
+                List<admin> adminList = service.listAll();
+                model.addAttribute("adminList",adminList);
                 return "adminEdit";
             } catch (UserNotFoundException e) {
               return  "redirect:/admin";

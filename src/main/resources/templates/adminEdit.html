@@ -31,7 +31,7 @@
 <!--    <input type="file" id="fileImage" name="fileImage" accept="image/png, image/jpeg, image/jpg"/>-->
 <br>
 
-<form th:action="@{/admin/save/photo}" method="post" th:object="${admin}"
+<form th:action="@{/admin/save}" method="post" th:object="${admin}"
       enctype="multipart/form-data"
  style="max-width:500px; margin: 0 auto; margin-left:30px;">
     <div class="border border-secondary rounded p-3">
@@ -53,15 +53,27 @@
                 </div>
             <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Photo 1</label>
             <div class="col-sm-8" style="margin-top:40px;">
-                <input type="file" name="photo1" id="photo1" accept="image/png, image/jpg, image/jpeg">
+                <input type="file" name="mainImage" id="mainImage" accept="image/png, image/jpg, image/jpeg">
+            </div>
+            <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Photo 2</label>
+            <div class="col-sm-8" style="margin-top:40px;">
+                <input type="file" name="extraImage"  accept="image/png, image/jpg, image/jpeg">
+            </div>
+                <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Photo 3</label>
+                <div class="col-sm-8" style="margin-top:40px;">
+                    <input type="file" name="extraImage"  accept="image/png, image/jpg, image/jpeg">
 
-
-
-        </div>
+                </div>
+            <label class="col-sm-4 col-form-label" style="margin-top:30px;">Offer Photo 4</label>
+            <div class="col-sm-8" style="margin-top:40px;">
+                <input type="file" name="extraImage"  accept="image/png, image/jpg, image/jpeg">
+            </div>
             <a  style="margin-left:170px;margin-top:30px;"> <button type="submit" class="btn btn-primary">Save</button> </a>
 
         </div>
     </div>
+
+
 
 </form>
 

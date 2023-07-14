@@ -25,6 +25,14 @@ public class admin {
     private String offer_body;
     @Column(name = "Photo1",nullable = true)
     private String photo;
+    @Column(name = "Photo2",nullable = true)
+    private String photo1;
+    @Column(name = "Photo3",nullable = true)
+    private String photo2;
+    @Column(name = "Photo4",nullable = true)
+    private String photo3;
+
+
 
     @Override
     public String toString() {
@@ -33,8 +41,15 @@ public class admin {
                 ", offerT='" + offer_head + '\'' +
                 ", offerP='" + offer_price + '\'' +
                 ", offerB='" + offer_body + '\'' +
-                ", offerB='" + photo + '\'' +
+                ", photo='" + photo + '\'' +
+                ", photo='" + photo1 + '\'' +
+                ", photo='" + photo2 + '\'' +
+                ", photo='" + photo3 + '\'' +
                 '}';
     }
 
+    @Transient
+    public String getMainImagePath(){
+        return "/images/1/" + photo;
+    }
 }
