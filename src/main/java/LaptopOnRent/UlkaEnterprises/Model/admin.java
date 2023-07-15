@@ -50,6 +50,23 @@ public class admin {
 
     @Transient
     public String getMainImagePath(){
+
         return "/images/1/" + photo;
     }
+    @Transient
+    public String getExtraImagePath1(){
+
+        return "/images/1/" + photo1;
+    }
+    @Transient
+    public String getExtraImagePath2(){
+
+        return "/images/1/" + photo2;
+    }
+    @Transient
+    public String getExtraImagePath3(){
+
+        return "/images/1/" + photo3;
+    }
+
 }
