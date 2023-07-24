@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>MacBook</title>
     <style>
+     @media only screen and (max-width: 900px) {
+    #mobile1 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #mobile2 {
+        display: none;
+    }
+}
     ul.breadcrumb {
   padding: 10px 16px;
   list-style: none;
@@ -49,6 +59,14 @@ ul.breadcrumb li a:hover {
     float: left;
   width: 50%;
   }
+  @media screen and (max-width: 600px) {
+  .column1 {
+    width: 100%;
+  }
+  .column2 {
+    width: 100%;
+  }
+}
   .column2{
     float: left;
   width: 25%;
@@ -162,7 +180,6 @@ text-color:#8E8C8C;
 }
 
 .column {
-
   width: 33.33%;
   padding: 5px;
   width: 20%; /* Four links of equal widths */
@@ -223,12 +240,14 @@ background-color:white;
     <title>LaptopOnRent</title>
     <div id="parent">
         <div class="child">
-            <h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 30px; margin-bottom: 20px">
+            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 20px; margin-bottom: 10px;">
                 LAPTOPONRENT.com
-            </h2></div>
-        <div class="child" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
-        <div class="child">
-            <img th:src="@{/images/Laptoponrentlogo.jpeg}" alt="Ulka Enterprises" style="width:8rem;margin-left:450px;mix-blend-mode:multiply;"/>
+            </h2></a></div>
+        <a th:href="@{/}">
+            <div class="child" id="mobile1" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
+        </a>
+        <div class="child" id="mobile2" style="float:right;margin-right:50px;">
+            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>
         </div>
         <hr style="margin-top:-1px">
     </div>

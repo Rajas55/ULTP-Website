@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <!--    <meta charset="UTF-8">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        #parent1 { white-space: nowrap; }
-.child1 { display: inline-block; }
-* {box-sizing: border-box}
-* {box-sizing: border-box}
-body {font-family: Arial, Helvetica, sans-serif;}
+    @media only screen and (max-width: 900px) {
+    #mobile1 {
+        display: none;
+    }
+     #mobile2 {
+        display: none;
+    }
+    #ourFounder{
+    text-align:center;
+    }
+}
 
+    .cardA {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0);
+
+  width: 40%;
+}
+
+.cardA:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.0);
+}
+
+.containerA {
+  padding: 2px 16px;
+}
+          #parent { white-space: nowrap; }
+.child { display: inline-block; }
 .navbar {
   width: 100%;
   background-color: #142F6E;
   overflow: auto;
 }
-
+ .button {
+    border-radius: 4px;
+    background-color:#184D94;
+  border: none;
+  color: white;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:80px;
+}
 .navbar a {
   float: none;
-  padding: 10px;
+  padding: 1px;
   color: white;
   text-decoration: none;
   font-size: 17px;
@@ -26,91 +59,148 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-align: center;
 }
 
+
 .navbar a:hover {
-  background-color: #142F6E;
-}
-.navbar a.active {
-  color:#142F6E;
-  background-color: white;
+  color: white;
 }
 
 
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
+.container {
+  padding: 2px 16px;
+  text-align:center;
+}
+
+.twocolumn {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  .twocolumn {
     width: 100%;
-    text-align: left;
   }
 }
 
-body{
-  height: 100%;
+.twocolumn1 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  .twocolumn1 {
+    width: 100%;
+  }
 }
 
+
+/* Clear floats after the columns */
+.rowlayout:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <title>About Us</title>
-    <div id="parent1">
-        <div class="child1">
-            <h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 30px; margin-bottom: 20px">
-            LAPTOPONRENT.com
-        </h2></div>
-        <div class="child1" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
+
+    <title>LaptopOnRent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <div id="parent">
+        <div class="child">
+           <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 20px; margin-bottom: 10px;">
+                LAPTOPONRENT.com
+            </h2></a></div>
+        <a th:href="@{/}">
+        <div class="child" id="mobile2" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
+        </a>
+        <div class="child" id="mobile1" style="float:right;margin-right:50px;">
+            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>
+        </div>
     </div>
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-
 <div class="navbar">
     <a  href="#home">Rent</a>
     <a href="#news">Repair</a>
     <a href="#contact">Refurbished Sales</a>
-    <a href="#about">Contact Us</a>
-    <a class="active" th:href="@{/AboutUs}">About</a>
+    <a th:href="@{/admin}">Admin Login</a>
+    <a  th:href="@{/AboutUs}">About</a>
 </div>
-
-
-    <title>CodePen - ScrollTrigger: SVG Text Mask</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="./AboutUs.css">
-<div class="scrollDist"></div>
-<div class="main">
-    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-        <mask id="m">
-            <g class="cloud1">
-                <rect fill="#fff" width="100%" height="801" y="799" />
-                <image xlink:href="https://assets.codepen.io/721952/cloud1Mask.jpg" width="1200" height="800"/>
-            </g>
-        </mask>
-
-        <image class="sky" xlink:href="https://assets.codepen.io/721952/sky.jpg"  width="1200" height="590" />
-        <image class="mountBg" xlink:href="https://assets.codepen.io/721952/mountBg.png" width="1200" height="800"/>
-        <image class="mountMg" xlink:href="https://assets.codepen.io/721952/mountMg.png" width="1200" height="800"/>
-        <image class="cloud2" xlink:href="https://assets.codepen.io/721952/cloud2.png" width="1200" height="800"/>
-        <image class="mountFg" xlink:href="https://assets.codepen.io/721952/mountFg.png" width="1200" height="800"/>
-        <image class="cloud1" xlink:href="https://assets.codepen.io/721952/cloud1.png" width="1200" height="800"/>
-        <image class="cloud3" xlink:href="https://assets.codepen.io/721952/cloud3.png" width="1200" height="800"/>
-        <text fill="#fff" x="350" y="200">EXPLORE</text>
-        <polyline class="arrow" fill="#fff" points="599,250 599,289 590,279 590,282 600,292 610,282 610,279 601,289 601,250" />
-
-        <g mask="url(#m)">
-            <rect fill="#fff" width="100%" height="100%" />
-            <text x="350" y="200" fill="#162a43">FURTHER</text>
-        </g>
-
-        <rect id="arrowBtn" width="100" height="100" opacity="0" x="550" y="220" style="cursor:pointer"/>
-    </svg>
+<div style="background-color:#7393B3">
+    <br><br>
+    <h1 style="text-align:center;font-family:Times New Roman;color:#142F6E;">Ulka Enterprises</h1>
+<!--    <p style="text-align:center;color:white; font-size: 20px;">Your one-stop solution for hassle-free laptop rentals and repairs, empowering you to stay connected and productive.</p>-->
+    <p style="text-align:center;color:white; font-size: 20px;">Unlock your productivity with our all-in-one solution: laptop renting, repairing,<br> and co-working space for seamless work experiences.</p>
+    <br><br><br><br>
 </div>
-<!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
-<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
-<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
-<script src='https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js'></script><script  src="./AboutUs.js"></script>
+<div style="background-color:#f0f7f7;margin-top:-15px;">
+    <br><br>
+<!--    <p style="text-align:center;"> Ulka Enterprises is a customer-centric laptop renting and repairing company aiming to empower individuals and businesses.<br>-->
+<!--        They offer reliable services that enhance productivity, foster innovation, and enable seamless connectivity in today's rapidly <br>changing digital landscape.-->
+<!--        With a focus on personalized solutions and exceptional service, they provide top-quality laptops and <br>meticulous repairs.-->
+<!--        Their team of skilled technicians ensures expertise, professionalism, and  attention to detail in every aspect of <br>their services.-->
+<!--        Transparency, integrity, and clear pricing form the foundation of their customer relationships.-->
+<!--        They prioritize time efficiency<br> with prompt services and quick turnaround times.-->
+<!--        Ulka Enterprises is committed to sustainability through eco-friendly practices and responsible<br> electronic waste management.-->
+<!--        By embracing continuous innovation, they offer cutting-edge solutions that meet the evolving needs of their customers.</p>-->
+    <p style="text-align:center;"> Ulka Enterprises is a customer-centric laptop renting and repairing company that empowers individuals and businesses.<br>
+        They provide reliable services for enhanced productivity and seamless connectivity in the digital landscape.
+        With a focus on<br> personalized solutions, top-quality laptops, and meticulous repairs, their skilled technicians deliver exceptional service.
+        <br>Transparency, integrity, and promptness are key pillars of their customer relationships.
+        They prioritize sustainability <br>and innovation, offering eco-friendly practices and cutting-edge solutions to meet evolving needs.</p>
+    <br><br>
+</div>
+<div style="background-color:#e0efef">
+    <br><br>
+    <div class="rowlayout">
+        <div class="twocolumn1">
+<!--            <div>-->
+<!--                <img style="width:30%;float:right" th:src="@{/images/64a86cc7-f1ad-4a85-b60a-0824caa93a54.jpg}"/>-->
+<!--                <p>Yashodhan Yardi</p>-->
+<!--            </div>-->
 
-</body>
-</html>
 
+                <div class="cardA"  style="float:right;">
+                <img th:src="@{/images/64a86cc7-f1ad-4a85-b60a-0824caa93a54.jpg}" style="display: block;width: 60%;margin: auto;">
+                <div class="container" style="font-family:Times New Roman">
+                    <h4 style="margin-top:10px;">Mr. Yashodhan Yardi</h4>
+                    <p>Founder</p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="twocolumn1">
+            <h3 id="ourFounder" style="font-family:Didot">Our Founder</h3>
+            <p>Ulka Enterprises was founded by Mr. Yashodhan Yardi in 1995 with a vision <br>to bridge the gap between technology and users,
+                ensuring that individuals and<br> businesses have access to high-quality laptops and reliable repair services.<br>
+                His goal is to provide convenient and affordable solutions that empower<br> customers to stay connected, productive, and
+                successful in today's digital world.<br> he aims to establish a trusted brand known for its exceptional customer service,<br>
+                technical expertise, and commitment to innovation, ultimately becoming a <br>go-to provider in the industry.</p>
+        </div>
+
+    </div>
+
+
+    <br><br>
+</div>
+<!--<div style="background-color:#f0f7f7">-->
+<!--    <br><br>-->
+<!--    <h2 style="font-family:Didot;text-align:center;">Meet Our Team</h2>-->
+<!--    <br>-->
+<!--    <div class="cardA">-->
+<!--        <img th:src="@{/images/055c5ac7-415c-4a0a-bc2d-94a74955a7d8.jpg}" style="display: block;width: 30%;margin: auto;">-->
+<!--        <div class="container" style="font-family:Times New Roman">-->
+<!--            <h4 style="margin-top:10px;">Mr. Somnath Jadhav</h4>-->
+<!--            <p>Sales Head</p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
 </body>
 </html>

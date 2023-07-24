@@ -1,7 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+ @media only screen and (max-width: 900px) {
+    #mobile1 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #mobile2 {
+        display: none;
+    }
+}
+
+    .card {
+  box-shadow: 0 4px 8px 0 ;
+  transition: 0.3s;
+  width: 70%;
+  cursor:pointer;
+  border-color:white;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px 0 white;
+}
+
+.container {
+  padding: 2px 16px;
+  text-align:center;
+}
 
       ul.breadcrumb {
   padding: 10px 16px;
@@ -53,10 +81,25 @@ ul.breadcrumb li a:hover {
 }
      #parent { white-space: nowrap; }
 .child { display: inline-block; }
+
+
+
+
  .column {
   float: left;
   width: 20%;
-}
+  margin-left:34%;
+  margin-right:-36%;
+  }
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+  @media screen and (max-width: 600px) {
+  #smaller{
+  text-align:center;
+  }
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -64,21 +107,25 @@ ul.breadcrumb li a:hover {
   display: table;
   clear: both;
 
+<!--  .card{-->
+<!--  box-shadow: 0 4px 8px 0 white;-->
+<!--  transition: 0.3s;-->
+<!--  width: 25%;-->
+<!--  cursor: pointer;-->
+<!--}-->
 
-  .card{
-  box-shadow: 0 4px 8px 0 white;
-  transition: 0.3s;
-  width: 25%;
-  cursor: pointer;
-}
+<!--.card:hover {-->
+<!--  box-shadow: 0 8px 16px 0 white;-->
+<!--}-->
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 white;
-}
+<!--.container {-->
+<!--  padding: 2px 16px;-->
+<!--}-->
 
-.container {
-  padding: 2px 16px;
-}
+
+
+
+
 
 
 
@@ -87,14 +134,15 @@ ul.breadcrumb li a:hover {
     <meta charset="UTF-8">
     <title>LaptopOnRent</title>
     <div id="parent" style="background-color:white;">
-        <div class="child"> <h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 50px; margin-bottom: 20px">
-            LAPTOPONRENT.com
-        </h2>
-        </div>
-        <div class="child" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES
-        </div>
-        <div class="child">
-            <img th:src="@{/images/Laptoponrentlogo.jpeg}" alt="Ulka Enterprises" style="width:8rem;margin-left:450px;mix-blend-mode:multiply;"/>
+        <div   class="child">
+            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 20px; margin-bottom: 10px;">
+                LAPTOPONRENT.com
+            </h2></a></div>
+        <a th:href="@{/}">
+            <div class="child" id="mobile2" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
+        </a>
+        <div class="child" id="mobile1" style="float:right;margin-right:50px;">
+            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>
         </div>
         <hr style="margin-top:20px">
         </div>
@@ -109,30 +157,55 @@ ul.breadcrumb li a:hover {
     <li style="color:#7BB4FF;">Laptops</li>
 </ul>
 
-<h2 style="font-family:Open Sans Bold;text-align:center;color:white;margin-top:50px;margin-bottom:80px;">LAPTOPS</h2>
+<h2 id="smaller" style="font-family:Open Sans Bold;text-align:center;color:white;margin-top:50px;margin-bottom:80px;">LAPTOPS</h2>
+
 <div class="row">
-        <div class="column" style="margin-left:420px;">
+        <div class="column" >
             <a style="text-decoration: none" th:href="@{/MacBook}">
-<div class="card" style="margin-left:30px;" >
-   <img  th:src="@{/images/Macbook.jpg}" alt="macbook Laptop" style="width:80%;margin-top:20px;margin-left:30px;"/>
+<div class="card" style="cursor:pointer;" >
+   <img  th:src="@{/images/Macbook.jpg}" alt="macbook Laptop" style="display: block;width: 50%;margin: auto;margin-top:20px;"/>
     <div class="container">
-        <h3 style="text-align:center;margin-top:17.5px;color:black;"><b>MacBook</b></h3>
+        <h3 style="text-align:center;margin-top:25px;color:black;"><b>MacBook</b></h3>
         <p style="text-align:center;color:#142F6E;">Monthly Rent Starting at Rs 3549/-</p>
-        <a th:href = "@{/MacBook}"><button class="button" style="cursor:pointer;margin-top:1px;margin-left:40px;margin-bottom:30px">View Details</button></a>
+        <a th:href = "@{/MacBook}"><button class="button" style="cursor:pointer;display:block;margin:auto;margin-bottom:20px;">View Details</button></a>
     </div>
 </div></a>
         </div>
-        <div class="column" style="margin-left:60px;">
+        <div class="column" style="">
             <a style="text-decoration: none" th:href="@{/Windows}">
 <div class="card" style="cursor:pointer;" >
-    <img th:src="@{/images/Windows Laptop.jpg}" alt="Windows Laptop" style="width:70%;margin-top:20px;margin-left:45px;"/>
+    <img th:src="@{/images/Windows Laptop.jpg}" alt="Windows Laptop" style="display: block;width: 50%;margin: auto;margin-top:20px;"/>
     <div class="container">
-        <h3 style="text-align:center;margin-top:15px;color:black;"><b>Windows</b></h3>
-        <p style="text-align:center;color:#142F6E;">Monthly Rent Starting at Rs<br> 3049/-</p>
-        <a th:href = "@{/Windows}"><button class="button" style="margin-top:-1px;margin-left:50px;margin-bottom:30px">View Details</button></a>
+        <h3 style="text-align:center;margin-top:18px;color:black;"><b>Windows</b></h3>
+        <p style="text-align:center;color:#142F6E;">Monthly Rent Starting at Rs 3049/-</p>
+        <a th:href = "@{/Windows}"><button class="button" style="display:block;margin:auto;margin-bottom:20px;cursor:pointer;">View Details</button></a>
     </div>
 </div></a>
         </div>
 </div>
+<!--<div class="rowlayout">-->
+<!--    <div class="twocolumn1">-->
+<!--        <a style="text-decoration:none;" th:href="@{/laptops}">-->
+<!--            <div class="card" style="margin-left:30px;border-color:white;">-->
+<!--                <img th:src="@{/images/macbook1.png}" style="display: block;width: 50%;margin: auto;">-->
+<!--                <div class="container" style="margin-top:-35px;">-->
+<!--                    <h4 ><b>LAPTOPS</b></h4>-->
+<!--                    <p >Windows and Apple</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--    <div class="twocolumn1">-->
+<!--        <a style="text-decoration:none;" th:href="@{/Devices}">-->
+<!--            <div class="card" style="border-color:white">-->
+<!--                <img th:src="@{/images/ipad1.png}" style="display: block;width: 50%;margin: auto;margin-top:35px;">-->
+<!--                <div class="container" style="margin-top:1px;">-->
+<!--                    <h4 ><b>iPhone/iPad</b></h4>-->
+<!--                    <p>On Rental Basis</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
 </body>
 </html>
