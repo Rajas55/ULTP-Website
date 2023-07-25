@@ -3,6 +3,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+    html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
  @media only screen and (max-width: 900px) {
     #mobile1 {
         display: none;
@@ -91,13 +97,19 @@ ul.breadcrumb li a:hover {
   margin-left:34%;
   margin-right:-36%;
   }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1300px) {
   .column {
     width: 100%;
+    margin-left:15%;
+     }
+     .space{
+     margin-top:10%;
+     }
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1450px) {
   #smaller{
   text-align:center;
+     }
   }
 
 
@@ -134,17 +146,17 @@ ul.breadcrumb li a:hover {
     <meta charset="UTF-8">
     <title>LaptopOnRent</title>
     <div id="parent" style="background-color:white;">
-        <div   class="child">
-            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 20px; margin-bottom: 10px;">
+        <div class="child">
+            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left:10%;  margin-top: 20px; margin-bottom: 10px;">
                 LAPTOPONRENT.com
             </h2></a></div>
         <a th:href="@{/}">
-            <div class="child" id="mobile2" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
+            <div class="child" id="mobile2" style="margin-left:3% ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>
         </a>
         <div class="child" id="mobile1" style="float:right;margin-right:50px;">
             <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>
         </div>
-        <hr style="margin-top:20px">
+<!--        <hr style="margin-top:20px">-->
         </div>
 
 </head>
@@ -162,7 +174,7 @@ ul.breadcrumb li a:hover {
 <div class="row">
         <div class="column" >
             <a style="text-decoration: none" th:href="@{/MacBook}">
-<div class="card" style="cursor:pointer;" >
+<div class="card center" style="cursor:pointer;" >
    <img  th:src="@{/images/Macbook.jpg}" alt="macbook Laptop" style="display: block;width: 50%;margin: auto;margin-top:20px;"/>
     <div class="container">
         <h3 style="text-align:center;margin-top:25px;color:black;"><b>MacBook</b></h3>
@@ -171,9 +183,9 @@ ul.breadcrumb li a:hover {
     </div>
 </div></a>
         </div>
-        <div class="column" style="">
+        <div class="column">
             <a style="text-decoration: none" th:href="@{/Windows}">
-<div class="card" style="cursor:pointer;" >
+<div class="card space" style="cursor:pointer;" >
     <img th:src="@{/images/Windows Laptop.jpg}" alt="Windows Laptop" style="display: block;width: 50%;margin: auto;margin-top:20px;"/>
     <div class="container">
         <h3 style="text-align:center;margin-top:18px;color:black;"><b>Windows</b></h3>
