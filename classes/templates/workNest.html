@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+    .header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+            color: #142F6E;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #142F6E;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .facilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .facility-card {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .facility-card img {
+            width: 60%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .map {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+    html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+    @media only screen and (max-width: 900px) {
+    #mobile1 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #mobile2 {
+        display: none;
+    }
+}
+.width{
+width:50%
+}
+          #parent { white-space: nowrap; }
+.child { display: inline-block; }
+.navbar {
+  width: 100%;
+  background-color: #142F6E;
+  overflow: auto;
+}
+ .button {
+    border-radius: 4px;
+    background-color:#184D94;
+  border: none;
+  color: white;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:80px;
+}
+.navbar a {
+  float: none;
+  padding: 1px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 10%;
+  text-align: center;
+}
+
+
+.navbar a:hover {
+  color: white;
+}
+.card {
+  box-shadow: 0 4px 8px 0 white;
+  transition: 0.3s;
+  width: 70%;
+  cursor:pointer;
+}
+.top{
+margin-top:-5%;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px 0 #142F6E;
+}
+
+.container {
+  padding: 2px 16px;
+  text-align:center;
+}
+
+.twocolumn {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1450px) {
+  .twocolumn {
+    width: 100%;
+    margin-left:15%;
+  }
+  .textCenter{
+  margin-left:20%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+.width{
+width:80%;
+}
+
+.textCenter{
+margin-left:15%;
+}
+}
+.margin-top{
+margin-top:5%;
+}
+@media screen and (max-width: 600px) {
+ .navbar a {
+  float: none;
+  padding: 1px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  width: 20%;
+  text-align: center;
+}
+#mobileButton{
+margin-left:15%;
+}
+<!--.margin-left{-->
+<!--margin-left:5%-->
+<!--}-->
+}
+
+.twocolumn1 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+@media screen and (max-width:1450px) {
+  .twocolumn1 {
+    width: 100%;
+    margin-left:-10%;
+  }
+  .textCenter{
+margin-left:15%
+}
+}
+.margin-left{
+margin-left:0%
+}
+#photoFit1{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+#photoFit2{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+#photoFit3{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+#photoFit4{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+.buttonLeft{
+margin-left:0%;
+}
+
+
+
+/* Clear floats after the columns */
+.rowlayout:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+    </style>
+
+    <title>LaptopOnRent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <div id="parent">
+        <div class="child">
+            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left:10%;  margin-top: 20px; margin-bottom: 10px;">
+                LAPTOPONRENT.com
+            </h2></a></div>
+        <a th:href="@{/}">
+            <div id="mobile1"  class="child" style="font-family: Roboto Regular ; color:#76777A;margin-left:3%;">A DIVISION OF ULKA ENTERPRISES</div>
+        </a>
+        <div class="child" id="mobile2" style="float:right;margin-right:5%;">
+            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>
+        </div>
+    </div>
+</head>
+<body>
+<div class="navbar">
+    <a  th:href="@{/Rent}">Rent</a>
+    <a th:href="@{/Repair}">Repair</a>
+    <a th:href="@{/Sales}">Sales</a>
+    <a th:href="@{/admin}">Admin</a>
+    <a  th:href="@{/AboutUs}">About</a>
+</div>
+<div class="header">
+    <h1>WorkNest Co-Working Space</h1>
+    <p>Your Comfortable and Collaborative Workspace</p>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+    <!-- About Section -->
+    <div class="section">
+        <h2>About WorkNest</h2>
+        <p>
+            WorkNest is a modern co-working space designed to meet the needs of freelancers, startups, and businesses looking for a productive and collaborative environment. Located in the heart of Pune, India, our space offers state-of-the-art facilities to ensure you have everything you need to succeed.
+        </p>
+    </div>
+
+    <!-- Facilities Section -->
+    <div style="padding: 20px; text-align: center;">
+        <h2 style="color: #142F6E; margin-bottom: 20px;">Facilities</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; justify-items: center;">
+            <!-- Facility Card 1 -->
+            <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; max-width: 300px;">
+                <img th:src="@{/images/wifi-removebg-preview.png}" alt="High-Speed Wi-Fi" style="width: 60%; height: auto; margin-bottom: 10px;">
+                <h4 style="color: #142F6E; margin-bottom: 10px;">High-Speed Wi-Fi</h4>
+                <p style="color: #555; line-height: 1.5;">Enjoy uninterrupted internet connectivity.</p>
+            </div>
+
+            <!-- Facility Card 2 -->
+            <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; max-width: 300px;">
+                <img th:src="@{/images/meeting.jpg}" alt="Meeting Rooms" style="width: 60%; height: auto;margin-top:40px; margin-bottom: 10px;">
+                <h4 style="color: #142F6E;margin-top:40px; margin-bottom: 10px;">Meeting Rooms</h4>
+                <p style="color: #555; line-height: 1.5;">Private meeting spaces with modern equipment.</p>
+            </div>
+
+            <!-- Facility Card 3 -->
+            <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; max-width: 300px;">
+                <img th:src="@{/images/cafe.webp}" alt="Cafeteria" style="width: 60%; height: auto;margin-top:40px; margin-bottom: 10px;">
+                <h4 style="color: #142F6E; margin-top:35px;margin-bottom: 10px;">Cafeteria</h4>
+                <p style="color: #555; line-height: 1.5;">Relax and recharge with delicious snacks and beverages.</p>
+            </div>
+
+            <!-- Facility Card 4 -->
+<!--            <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center; max-width: 300px;">-->
+<!--                <img src="/images/24-7-access.jpg" alt="24/7 Access" style="width: 60%; height: auto; margin-bottom: 10px;">-->
+<!--                <h4 style="color: #142F6E; margin-bottom: 10px;">24/7 Access</h4>-->
+<!--                <p style="color: #555; line-height: 1.5;">Access the workspace anytime, day or night.</p>-->
+<!--            </div>-->
+        </div>
+    </div>
+
+
+    <!-- Gallery Section -->
+    <div class="section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="/images/worknest-gallery1.jpg" alt="Gallery Image 1">
+            <img src="/images/worknest-gallery2.jpg" alt="Gallery Image 2">
+            <img src="/images/worknest-gallery3.jpg" alt="Gallery Image 3">
+            <img src="/images/worknest-gallery4.jpg" alt="Gallery Image 4">
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map">
+        <h2>Visit Us</h2>
+        <div id="map" style="width: 100%; height: 400px; margin-top: 20px; border: 1px solid #ddd; border-radius: 10px;"></div>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the map with the specified coordinates
+        const map = L.map('map').setView([18.5204, 73.8567], 13); // Pune coordinates
+
+        // Add OpenStreetMap tiles to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker to the map at the specified coordinates
+        const marker = L.marker([18.5204, 73.8567]).addTo(map);
+        marker.bindPopup("<b>WorkNest Co-working Space</b><br>Pune, India").openPopup();
+    });
+</script>
+    </div>
+    </br>
+    <!-- Contact Section -->
+    <div class="section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or want to book your space, feel free to reach out!</p>
+        <div class="contact-buttons" style="text-align: center; margin-top: 20px;">
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/919370699130?text=Hello%2C%20I%20am%20interested%20in%20booking%20a%20co-working%20space%20at%20WorkNest.%20Can%20you%20provide%20more%20details%3F"
+               target="_blank"
+               class="btn btn-success"
+               style="margin: 10px; padding: 10px 20px; font-size: 16px; border-radius: 5px; text-decoration: none;">
+                <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" style="vertical-align: middle; width: 24px; height: 24px; margin-right: 8px;">
+                Chat on WhatsApp
+            </a>
+            <!-- Call Button -->
+            <a href="tel:+919370699130" class="btn btn-primary" style="margin: 10px; padding: 10px 20px; font-size: 16px; border-radius: 5px; text-decoration: none;">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Call" style="vertical-align: middle; width: 24px; height: 24px; margin-right: 8px;">
+                Call Us
+            </a>
+        </div>
+    </div>
+
+</div>
+<footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top: 50px;">
+    <div style="text-align: center;">
+        <h5 style="margin: 0; font-family: 'Roboto Medium';">LaptopOnRent.com</h5>
+        <p style="margin: 5px 0; color:grey">A Division of Ulka Enterprises</p>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
+        <a href="/AboutUs" style="color: white; text-decoration: none;">About Us</a>
+        <a href="/contactus" style="color: white; text-decoration: none;">Contact Us</a>
+        <a href="/faq" style="color: white; text-decoration: none;">FAQs</a>
+        <a href="/privacy-policy" style="color: white; text-decoration: none;">Privacy Policy</a>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="margin: 0;color:grey">&copy; 2025 LaptopOnRent.com - All Rights Reserved</p>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <a href="https://facebook.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <img src="/images/facebook-icon.png" alt="Facebook" style="width: 20px;">
+        </a>
+        <a href="https://twitter.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <img src="/images/twitter-icon.png" alt="Twitter" style="width: 20px;">
+        </a>
+        <a href="https://instagram.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <img src="/images/instagram-icon.png" alt="Instagram" style="width: 20px;">
+        </a>
+    </div>
+</footer>
+</body>
+</html>
