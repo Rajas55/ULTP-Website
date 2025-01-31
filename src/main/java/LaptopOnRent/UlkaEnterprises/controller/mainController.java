@@ -55,6 +55,29 @@ public class mainController {
         return "Devices";
 
     }
+    @GetMapping("/WorkNest")
+    public String showWorkNest(){
+        return "workNest";
+    }
+    @GetMapping("/Repair")
+    public String showRepair(){
+        return "repair";
+    }
+    @GetMapping("/Sales")
+    public String showSales(){
+        return "sales";
+    }
+    @GetMapping("/Rent")
+    public String showRent(){
+        return "rent";
+    }
+    @GetMapping("/House")
+    public String showHouse(){return "house";}
+    @GetMapping("/Admin")
+    public String showAdmin(){return "Admin";}
+
+
+
 
     @GetMapping("/redirect")
     public void getRedirect(HttpServletResponse resp, HttpServletRequest request) throws IOException {
@@ -62,5 +85,6 @@ public class mainController {
             resp.sendRedirect("/admin");
         }
     }
+
 
 }

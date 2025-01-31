@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
+    @media only screen and (max-width: 900px) {
+    #mobile1 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #mobile2 {
+        display: none;
+    }
+}
+.width{
+width:50%
+}
+          #parent { white-space: nowrap; }
+.child { display: inline-block; }
+.navbar {
+  width: 100%;
+  background-color: #142F6E;
+  overflow: auto;
+}
+ .button {
+    border-radius: 4px;
+    background-color:#184D94;
+  border: none;
+  color: white;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:80px;
+}
+.navbar a {
+  float: none;
+  padding: 1px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 10%;
+  text-align: center;
+}
+
+
+.navbar a:hover {
+  color: white;
+}
+.card {
+  box-shadow: 0 4px 8px 0 white;
+  transition: 0.3s;
+  width: 70%;
+  cursor:pointer;
+}
+.top{
+margin-top:-5%;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px 0 #142F6E;
+}
+
+.container {
+  padding: 2px 16px;
+  text-align:center;
+}
+
+.twocolumn {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1450px) {
+  .twocolumn {
+    width: 100%;
+    margin-left:15%;
+  }
+  .textCenter{
+  margin-left:20%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+.width{
+width:80%;
+}
+
+.textCenter{
+margin-left:15%;
+}
+}
+.margin-top{
+margin-top:5%;
+}
+@media screen and (max-width: 600px) {
+ .navbar a {
+  float: none;
+  padding: 1px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  width: 20%;
+  text-align: center;
+}
+#mobileButton{
+margin-left:15%;
+}
+<!--.margin-left{-->
+<!--margin-left:5%-->
+<!--}-->
+}
+
+.twocolumn1 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+@media screen and (max-width:1450px) {
+  .twocolumn1 {
+    width: 100%;
+    margin-left:-10%;
+  }
+  .textCenter{
+margin-left:15%
+}
+}
+.margin-left{
+margin-left:0%
+}
+#photoFit1{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+#photoFit2{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+#photoFit3{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+#photoFit4{
+aspect-ratio:3/2;
+object-fit:contain;
+}
+.buttonLeft{
+margin-left:0%;
+}
+
+
+
+/* Clear floats after the columns */
+.rowlayout:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+  .carousel-inner {
+    padding: 20px; /* Add padding around carousel items */
+    border-radius: 20px; /* Smooth rounded corners for carousel */
+    background-color: #f4f4f4; /* Light background to make cards pop */
+}
+
+    </style>
+
+    <title>LaptopOnRent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <div id="parent">
+        <div class="child">
+            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left:10%;  margin-top: 20px; margin-bottom: 10px;">
+                LAPTOPONRENT.com
+            </h2></a></div>
+        <a th:href="@{/}">
+            <div id="mobile1"  class="child" style="font-family: Roboto Regular ; color:#76777A;margin-left:3%;">A DIVISION OF ULKA ENTERPRISES</div>
+        </a>
+        <div class="child" id="mobile2" style="float:right;margin-right:5%;">
+            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>
+        </div>
+    </div>
+</head>
+<body>
+<div class="navbar">
+    <a  th:href="@{/Rent}">Rent</a>
+    <a th:href="@{/Repair}">Repair</a>
+    <a th:href="@{/Sales}">Sales</a>
+    <a th:href="@{/Admin}">Admin</a>
+    <a  th:href="@{/AboutUs}">About</a>
+</div>
+<div style="text-align: center; padding: 50px 20px; background-color: #142F6E; color: white;">
+    <h1>Repair Services</h1>
+    <p>Professional repair services for laptops, desktops, and electronics</p>
+</div>
+
+<!-- Tools Section -->
+<div style="padding: 20px; max-width: 1200px; margin: auto;">
+    <h2 style="color: #142F6E;">Our Tools and Machinery</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center;">
+            <img th:src="@{/images/scd.jpg}" alt="Screwdriver Set" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+            <h4>Screwdriver Set</h4>
+            <p>Precision tools for intricate repairs.</p>
+        </div>
+        <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center;">
+            <img th:src="@{/images/solder.png}" alt="Soldering Station" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+            <h4>Soldering Station</h4>
+            <p>State-of-the-art soldering tools for circuit repairs.</p>
+        </div>
+        <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center;">
+            <img th:src="@{/images/dignostic.jpg}" alt="Diagnostic Tools" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+            <h4>Diagnostic Tools</h4>
+            <p>Advanced diagnostic tools to identify hardware issues.</p>
+        </div>
+        <div style="background-color: #f4f4f4; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center;">
+            <img th:src="@{/images/thermal.jpg}" alt="Thermal Paste" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+            <h4>Thermal Paste</h4>
+            <p>High-quality paste for optimal heat dissipation.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Inquiry Section -->
+<div style="text-align: center; margin-top: 40px;">
+    <h2 style="color: #142F6E;">Need Assistance?</h2>
+    <a href="https://wa.me/+919370699130?text=Hi,%20I%20need%20help%20with%20repairs" style="background-color: #25d366; color: white; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; font-size: 16px; margin: 5px; display: inline-block;">WhatsApp Us</a>
+    <a href="tel:+919370699130" style="background-color: #184D94; color: white; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; font-size: 16px; margin: 5px; display: inline-block;">Call Us</a>
+</div>
+<footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top: 50px;">
+    <div style="text-align: center;">
+        <h5 style="margin: 0; font-family: 'Roboto Medium';">LaptopOnRent.com</h5>
+        <p style="margin: 5px 0;">A Division of Ulka Enterprises</p>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
+        <a href="/AboutUs" style="color: white; text-decoration: none;">About Us</a>
+        <a href="/contactus" style="color: white; text-decoration: none;">Contact Us</a>
+        <a href="/faq" style="color: white; text-decoration: none;">FAQs</a>
+        <a href="/privacy-policy" style="color: white; text-decoration: none;">Privacy Policy</a>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="margin: 0;">&copy; 2025 LaptopOnRent.com - All Rights Reserved</p>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+        <a href="https://facebook.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <img th:src="@{/images/Facebook-logo.png}" alt="Facebook" style="width: 40px;">
+        </a>
+        <a href="https://twitter.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <img th:src="@{/images/xlogo.png}" alt="Twitter" style="width: 40px;">
+        </a>
+        <a href="https://instagram.com" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <img th:src="@{/images/insta.avif}" alt="Instagram" style="width: 40px;">
+        </a>
+    </div>
+</footer>
+</body>
+</html>
