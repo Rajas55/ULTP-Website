@@ -1,6 +1,6 @@
 package LaptopOnRent.UlkaEnterprises.controller;
 import LaptopOnRent.UlkaEnterprises.Model.admin;
-import LaptopOnRent.UlkaEnterprises.Service.AdminService;
+//import LaptopOnRent.UlkaEnterprises.Service.AdminService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,14 @@ import java.util.List;
 
 @Controller
 public class mainController {
-    @Autowired
-    private AdminService service;
+//    @Autowired
+//    private AdminService service;
 
 
-//    @GetMapping("/")
-//    public String showHomePage(){
-//        return "home";
-//    }
+    @GetMapping("/")
+    public String showHomePage(){
+        return "home";
+    }
 
 
     @GetMapping("/laptops")

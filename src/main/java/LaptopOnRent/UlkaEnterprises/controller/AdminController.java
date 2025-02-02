@@ -2,8 +2,8 @@ package LaptopOnRent.UlkaEnterprises.controller;
 
 import LaptopOnRent.UlkaEnterprises.FileUploadUtil;
 import LaptopOnRent.UlkaEnterprises.Model.admin;
-import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
-import LaptopOnRent.UlkaEnterprises.Service.AdminService;
+//import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
+//import LaptopOnRent.UlkaEnterprises.Service.AdminService;
 import LaptopOnRent.UlkaEnterprises.Service.UserNotFoundException;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +23,14 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
-@Controller
-public class AdminController {
-    @Autowired
-    private adminRepository adminRepository;
+//@Controller
+//public class AdminController {
+//    @Autowired
+//    private adminRepository adminRepository;
 
 
-    @Autowired
-    private AdminService service;
+//    @Autowired
+//    private AdminService service;
 //    public String uploadDir ="/Users/rajasyardi/UlkaEnterprises/user-photos";
 //    @PostMapping("/admin/save") public String uploadImage(admin admin, @RequestParam("photo1") MultipartFile file,RedirectAttributes redirectAttributes) throws IOException {
 //        StringBuilder fileNames = new StringBuilder();
@@ -75,70 +75,70 @@ public class AdminController {
 //    }
 //
 //
-@PostMapping("/admin/save")
-    public String SaveData(@ModelAttribute(name = "admin") admin admin, RedirectAttributes redirectAttributes,
-                           @RequestParam("mainImage") MultipartFile mainMultipartFile,
-                           @RequestParam("extraImage") MultipartFile [] extraMultipartFiles) throws IOException{
-        String mainImageName = StringUtils.cleanPath(mainMultipartFile.getOriginalFilename());
-        admin.setPhoto(mainImageName);
-        int count = 0;
-        for (MultipartFile extraMultipart : extraMultipartFiles){
-            String extraImageName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
-           if (count == 0) admin.setPhoto1(extraImageName);
-            if (count == 1) admin.setPhoto2(extraImageName);
-            if (count == 2) admin.setPhoto3(extraImageName);
-
-            count++;
-        }
-         admin savedProduct =  service.save(admin);
-        String uploadDir = "/Users/rajasyardi/UlkaEnterprises/src/main/resources/static/images/" + savedProduct.getId();
-         FileUploadUtil.saveFile(uploadDir,mainMultipartFile,mainImageName);
-
-    for (MultipartFile extraMultipart : extraMultipartFiles){
-        String fileName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
-        FileUploadUtil.saveFile(uploadDir,extraMultipart,fileName);
-
-    }
-
-    redirectAttributes.addFlashAttribute("message","The data has been saved successfully! It will be updated on the website shortly.");
-        return "redirect:/admin";
-    }
-
-
-//    @GetMapping({"/"})
-//    public ModelAndView getHomeText(Model model) {
-//        ModelAndView mav = new ModelAndView("home");
-//        mav.addObject("text", adminRepository.getText(1));
-//        return mav;
+//@PostMapping("/admin/save")
+//    public String SaveData(@ModelAttribute(name = "admin") admin admin, RedirectAttributes redirectAttributes,
+//                           @RequestParam("mainImage") MultipartFile mainMultipartFile,
+//                           @RequestParam("extraImage") MultipartFile [] extraMultipartFiles) throws IOException{
+//        String mainImageName = StringUtils.cleanPath(mainMultipartFile.getOriginalFilename());
+//        admin.setPhoto(mainImageName);
+//        int count = 0;
+//        for (MultipartFile extraMultipart : extraMultipartFiles){
+//            String extraImageName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
+//           if (count == 0) admin.setPhoto1(extraImageName);
+//            if (count == 1) admin.setPhoto2(extraImageName);
+//            if (count == 2) admin.setPhoto3(extraImageName);
+//
+//            count++;
+//        }
+//         admin savedProduct =  service.save(admin);
+//        String uploadDir = "/Users/rajasyardi/UlkaEnterprises/src/main/resources/static/images/" + savedProduct.getId();
+//         FileUploadUtil.saveFile(uploadDir,mainMultipartFile,mainImageName);
+//
+//    for (MultipartFile extraMultipart : extraMultipartFiles){
+//        String fileName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
+//        FileUploadUtil.saveFile(uploadDir,extraMultipart,fileName);
+//
 //    }
-    @GetMapping("/admin")
-    public String showList(Model model){
-        List<admin> adminList = service.listAll();
-        model.addAttribute("adminList",adminList);
-        return "admin";
-
-    }
-    @GetMapping("/")
-    public String showHP(Model model){
-        List<admin> adminList = service.listAll();
-        model.addAttribute("aList",adminList);
-        return "home";
-
-    }
-    @GetMapping("/admin/edit/{id}")
-    public String showEditPage(@PathVariable("id")Integer id,Model model){
-            try {
-               admin admins =  service.get(id);
-                model.addAttribute("admin",admins);
-                List<admin> adminList = service.listAll();
-                model.addAttribute("adminList",adminList);
-                return "adminEdit";
-            } catch (UserNotFoundException e) {
-              return  "redirect:/admin";
-            }
-    }
-
-
-
-
-}
+//
+//    redirectAttributes.addFlashAttribute("message","The data has been saved successfully! It will be updated on the website shortly.");
+//        return "redirect:/admin";
+//    }
+//
+//
+////    @GetMapping({"/"})
+////    public ModelAndView getHomeText(Model model) {
+////        ModelAndView mav = new ModelAndView("home");
+////        mav.addObject("text", adminRepository.getText(1));
+////        return mav;
+////    }
+//    @GetMapping("/admin")
+//    public String showList(Model model){
+//        List<admin> adminList = service.listAll();
+//        model.addAttribute("adminList",adminList);
+//        return "admin";
+//
+//    }
+//    @GetMapping("/")
+//    public String showHP(Model model){
+//        List<admin> adminList = service.listAll();
+//        model.addAttribute("aList",adminList);
+//        return "home";
+//
+//    }
+//    @GetMapping("/admin/edit/{id}")
+//    public String showEditPage(@PathVariable("id")Integer id,Model model){
+//            try {
+//               admin admins =  service.get(id);
+//                model.addAttribute("admin",admins);
+//                List<admin> adminList = service.listAll();
+//                model.addAttribute("adminList",adminList);
+//                return "adminEdit";
+//            } catch (UserNotFoundException e) {
+//              return  "redirect:/admin";
+//            }
+//    }
+//
+//
+//
+//
+//}

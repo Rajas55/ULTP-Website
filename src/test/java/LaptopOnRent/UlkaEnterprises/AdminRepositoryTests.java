@@ -1,7 +1,7 @@
 package LaptopOnRent.UlkaEnterprises;
 
 import LaptopOnRent.UlkaEnterprises.Model.admin;
-import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
+//import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +13,8 @@ import org.springframework.test.annotation.Rollback;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
 public class AdminRepositoryTests {
-    @Autowired
-   private adminRepository adminRepo;
+//    @Autowired
+//   private adminRepository adminRepo;
 //    @Test
 //    public void addnew(){
 //        admin admin = new admin();
