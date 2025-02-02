@@ -1,6 +1,6 @@
 package LaptopOnRent.UlkaEnterprises;
 
-import LaptopOnRent.UlkaEnterprises.Model.admin;
+
 //import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

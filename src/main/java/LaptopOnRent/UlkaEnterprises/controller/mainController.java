@@ -1,5 +1,5 @@
 package LaptopOnRent.UlkaEnterprises.controller;
-import LaptopOnRent.UlkaEnterprises.Model.admin;
+
 //import LaptopOnRent.UlkaEnterprises.Service.AdminService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
