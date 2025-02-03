@@ -66,9 +66,9 @@ public class mainController {
         return "house";
     }
 
-    @GetMapping("/Admin")
-    public String showAdmin() {
-        return "Admin"; // Optional: Keep or remove this if admin functionality is unnecessary
+    @GetMapping("/FinancialHealth")
+    public String showHealth() {
+        return "fhealth"; // Optional: Keep or remove this if admin functionality is unnecessary
     }
     @GetMapping("/iPhone")
     public String showIphone() {
@@ -78,5 +78,8 @@ public class mainController {
     public String showIpad() {
         return "ipad"; // Optional: Keep or remove this if admin functionality is unnecessary
     }
-
+    @GetMapping("/Admin")
+    public String showAdmin() {
+        return "admin";
+    }
 }
