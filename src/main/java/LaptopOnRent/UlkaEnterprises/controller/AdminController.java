@@ -1,7 +1,7 @@
 package LaptopOnRent.UlkaEnterprises.controller;
 
 import LaptopOnRent.UlkaEnterprises.FileUploadUtil;
-import LaptopOnRent.UlkaEnterprises.Model.admin;
+
 //import LaptopOnRent.UlkaEnterprises.Repository.adminRepository;
 //import LaptopOnRent.UlkaEnterprises.Service.AdminService;
 import LaptopOnRent.UlkaEnterprises.Service.UserNotFoundException;
