@@ -70,4 +70,13 @@ public class mainController {
     public String showAdmin() {
         return "Admin"; // Optional: Keep or remove this if admin functionality is unnecessary
     }
+    @GetMapping("/iPhone")
+    public String showIphone() {
+        return "iphone"; // Optional: Keep or remove this if admin functionality is unnecessary
+    }
+    @GetMapping("/iPad")
+    public String showIpad() {
+        return "ipad"; // Optional: Keep or remove this if admin functionality is unnecessary
+    }
+
 }

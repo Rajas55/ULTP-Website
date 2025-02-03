@@ -175,7 +175,7 @@ margin-left:0%;
 
     </style>
 
-    <title>LaptopOnRent</title>
+    <title>ULTP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <div id="parent">
         <div class="child">
@@ -190,7 +190,8 @@ margin-left:0%;
         </div>
     </div>
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+<div style="flex:1;">
 <div class="navbar">
     <a  th:href="@{/Rent}">Rent</a>
     <a th:href="@{/Repair}">Repair</a>
@@ -236,7 +237,7 @@ margin-left:0%;
 <!-- Inquiry Section -->
 <div style="text-align: center; margin-top: 40px;">
     <h2 style="color: #142F6E;">Contact Us for Any Product</h2>
-    <a href="https://wa.me/1234567890?text=Hi,%20I'm%20interested%20in%20your%20products%20for%20sale"
+    <a href="https://wa.me/+919370699130?text=Hi,%20I'm%20interested%20in%20your%20products%20for%20sale"
        style="background-color: #25d366; color: white; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; font-size: 16px; margin: 5px; display: inline-block;">
         WhatsApp Us
     </a>
@@ -245,7 +246,8 @@ margin-left:0%;
         Call Us
     </a>
 </div>
-<footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top: 50px;">
+</div>
+<footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top: auto;">
     <div style="text-align: center;">
         <h5 style="margin: 0; font-family: 'Roboto Medium';">LaptopOnRent.com</h5>
         <p style="margin: 5px 0;">A Division of Ulka Enterprises</p>
@@ -259,7 +261,6 @@ margin-left:0%;
     <div style="text-align: center; margin-top: 20px;">
         <p style="margin: 0;">&copy; 2025 LaptopOnRent.com - All Rights Reserved</p>
     </div>
-
 </footer>
 </body>
 </html>
