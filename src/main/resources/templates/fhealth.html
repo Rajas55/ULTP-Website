@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <!-- Ensure mobile devices use the correct viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/x-icon" th:href="@{/images/favicon-32x32.png}">
     <title>Ulka Enterprises</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link
-            rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <style>
-     .box-container {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-}
-
-    .box {
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  width: 20%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.number {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-    .description {
-  font-size: 16px;
-  color: #555;
-}
-
-
-     .legend {
+        /* --------------------------
+           Desktop/Laptop Styles (unchanged)
+        -------------------------- */
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 20%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 16px;
+            color: #555;
+        }
+        .legend {
             background: white;
             padding: 15px;
             border-radius: 5px;
@@ -69,7 +71,6 @@
             flex-direction: column;
             height: 100vh;
         }
-
         /* Header styling */
         .header {
             text-align: center;
@@ -77,29 +78,24 @@
             background-color: #184D94;
             color: white;
         }
-
         /* Main content */
         .content {
             display: flex;
             flex-grow: 1;
-
         }
-
         .list-container {
             width: 30%;
             padding: 1rem;
             overflow-y: auto;
             border-right: 1px solid #ddd;
             background-color: #f8f9fa;
-            height:700px;
+            height: 700px;
         }
-
         .map-container {
             width: 50%;
             padding: 1rem;
             position: relative;
         }
-
         #map {
             height: 100%;
             width: 100%;
@@ -107,20 +103,19 @@
             border: 2px solid #ddd;
         }
         .custom-marker div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: white;
-    border-radius: 15px;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    font-size: 12px;
-    font-weight: bold;
-    color: black;
-}
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: white;
+            border-radius: 15px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            font-size: 12px;
+            font-weight: bold;
+            color: black;
+        }
         .list-item {
             margin-bottom: 1rem;
             padding: 1rem;
@@ -128,7 +123,6 @@
             border-radius: 5px;
             background-color: #fff;
         }
-
         .status-dot {
             display: inline-block;
             width: 12px;
@@ -136,194 +130,235 @@
             border-radius: 50%;
             margin-right: 8px;
         }
-
         .green {
             background-color: green;
         }
-
         .yellow {
             background-color: orange;
         }
-
         .red {
             background-color: red;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .grid-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .grid-card h4 {
+            margin: 0 0 5px;
+            font-size: 1.2rem;
+        }
+        .grid-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        footer {
+            background-color: #142F6E;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* --------------------------
+           Mobile-Specific Overrides (max-width: 768px)
+           -------------------------- */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            /* Change order: Map first, then Legend, then Companies List */
+            .map-container {
+                order: 1;
+                width: 100%;
+                padding: 1rem;
+                height: 300px; /* Reduced height for mobile */
+            }
+            .legend {
+                order: 2;
+                width: 100%;
+                margin: 10px auto;
+                padding: 0 1rem;
+            }
+            .list-container {
+                order: 3;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-top: 1px solid #ddd;
+                padding: 1rem;
+            }
+            /* Adjust dashboard summary boxes */
+            .box-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .box {
+                width: 80%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
 <div style="flex:1;">
 
+    <!-- Header Section -->
+    <div class="header">
+        <a th:href="@{/}" class="btn btn-outline-light" style="padding: 10px 20px; font-size: 16px; margin-bottom:20px;">
+            Home
+        </a>
+        <h2>Dashboard</h2>
+        <h3>Map with Outstanding Payments</h3>
+        <p>For Demonstration Purposes. keep a track of the company's finances</p>
+    </div>
 
-<!-- Header Section -->
-<div class="header">
-    <a th:href="@{/}" class="btn btn-outline-light" style="padding: 10px 20px; font-size: 16px;margin-bottom:20px;">
-        Home
-    </a>
-    <h2>Dashboard - Outstanding Amounts</h2>
-    <h3>Map of Companies with Outstanding Payments</h3>
-    <p>For Demonstration Purposes, financial health page to keep a track of the company's finances</p>
-</div>
+    <!-- Main Content -->
+    <div class="content">
+        <!-- List Container (Desktop: left panel; Mobile: order 3) -->
+        <div class="list-container">
+            <h4>Companies with Outstanding Payments</h4>
+            <div class="list-item">
+                <span class="status-dot green"></span>
+                <strong>Company A</strong>
+                <p>123 Innovation Blvd, New York, NY 10001</p>
+                <p>Outstanding: $2,000</p>
+                <p>30 Days Outstanding</p>
+            </div>
+            <div class="list-item">
+                <span class="status-dot yellow"></span>
+                <strong>Company B</strong>
+                <p>456 Sunset Ave, Los Angeles, CA 90001</p>
+                <p>Outstanding: $4,500</p>
+                <p>60 Days Outstanding</p>
+            </div>
+            <div class="list-item">
+                <span class="status-dot red"></span>
+                <strong>Company C</strong>
+                <p>789 Lake Shore Dr, Chicago, IL 60601</p>
+                <p>Outstanding: $12,000</p>
+                <p>90 Days Outstanding</p>
+            </div>
+        </div>
 
-<!-- Main Content -->
-<div class="content">
-    <!-- Left Panel -->
-    <div class="list-container">
-        <h4>Companies with Outstanding Payments</h4>
-        <div class="list-item">
-            <span class="status-dot green"></span>
-            <strong>Company A</strong>
-            <p>123 Innovation Blvd, New York, NY 10001</p>
-            <p>Outstanding: $2,000</p>
-            <p>30 Days Outstanding</p>
+        <!-- Map Container (Desktop: right panel; Mobile: order 1) -->
+        <div class="map-container">
+            <div id="map"></div>
         </div>
-        <div class="list-item">
-            <span class="status-dot yellow"></span>
-            <strong>Company B</strong>
-            <p>456 Sunset Ave, Los Angeles, CA 90001</p>
-            <p>Outstanding: $4,500</p>
-            <p>60 Days Outstanding</p>
-        </div>
-        <div class="list-item">
-            <span class="status-dot red"></span>
-            <strong>Company C</strong>
-            <p>789 Lake Shore Dr, Chicago, IL 60601</p>
-            <p>Outstanding: $12,000</p>
-            <p>90 Days Outstanding</p>
+
+        <!-- Legend (Mobile: order 2) -->
+        <div class="legend">
+            <h3>Legend</h3>
+            <div><span style="background:red;"></span> Outstanding more than 90 days</div>
+            <div><span style="background:orange;"></span> Outstanding less than 60 days</div>
+            <div><span style="background:green;"></span> Outstanding less than 30 days</div>
+            <div style="margin-top:20px;">Note - Click the pins on the map for more info</div>
         </div>
     </div>
 
-    <!-- Map Panel -->
-    <div class="map-container">
-        <div id="map"></div>
-    </div>
-    <div class="legend">
-        <h3>Legend</h3>
-        <div><span style="background:red;"></span> Outstanding more than 90 days</div>
-        <div><span style="background:orange;"></span> Outstanding less than 60 days</div>
-        <div><span style="background:green;"></span> Outstanding less than 30 days</div>
-        <div style="margin-top:20px;">Note - Click the pins on the map for more info</div>
-    </div>
-</div>
-
-<script>
-    const companies = [
-        {
-            name: "Company A",
-            latitude: 40.754392588099314,
-            longitude:  -73.99444959911963,
-            outstanding: 2000,
-            status: "green",
-        },
-        {
-            name: "Company B",
-            latitude: 33.99652217526842,
-            longitude: -118.47266064569892,
-            outstanding: 4500,
-            status: "orange",
-        },
-        {
-            name: "Company C",
-            latitude: 41.89672673566954,
-            longitude: -87.61683294542271,
-            outstanding: 12000,
-            status: "red",
-        },
-    ];
-
-   const map = L.map("map").setView([37.0902, -95.7129], 4);
-
-    // Add map tiles
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-    }).addTo(map);
-
-    // Add markers with colored dots and price labels
-companies.forEach((company) => {
-    const marker = L.marker([company.latitude, company.longitude], {
-        icon: L.divIcon({
-            className: "custom-marker",
-            html: `
-                <div style="
-                    display: inline-block;
-                    background: white;
-                    padding: 6px 10px;
-                    border-radius: 15px;
-                    border: 1px solid #ccc;
-                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-                    font-size: 12px;
-                    font-weight: bold;
-                    color: black;
-                    position: relative;
-                ">
-                    <div style="
-                        display: flex;
-                        align-items: center;
-                    ">
-                        <div style="
-                            width: 10px;
-                            height: 10px;
-                            border-radius: 50%;
-                            background: ${company.status};
-                            margin-right: 5px;
-                        "></div>
-                        <span>$${company.outstanding}</span>
-                    </div>
-                </div>
-            `,
-        }),
-    }).addTo(map);
-
-    marker.bindPopup(
-        `<strong>${company.name}</strong><br>Outstanding: $${company.outstanding}`
-    );
-});
-</script>
     <script>
-  function incrementNumbers() {
-    const numbers = document.querySelectorAll('.number');
+        const companies = [
+            {
+                name: "Company A",
+                latitude: 40.754392588099314,
+                longitude: -73.99444959911963,
+                outstanding: 2000,
+                status: "green",
+            },
+            {
+                name: "Company B",
+                latitude: 33.99652217526842,
+                longitude: -118.47266064569892,
+                outstanding: 4500,
+                status: "orange",
+            },
+            {
+                name: "Company C",
+                latitude: 41.89672673566954,
+                longitude: -87.61683294542271,
+                outstanding: 12000,
+                status: "red",
+            },
+        ];
 
-    numbers.forEach((number) => {
-      const updateCount = () => {
-        const target = +number.getAttribute('data-target'); // Target number
-        const count = +number.innerText.replace('$', '');  // Current count
-        const increment = Math.ceil(target / 100);         // Increment value
+        const map = L.map("map").setView([37.0902, -95.7129], 4);
 
-        if (count < target) {
-          number.innerText = `$${Math.min(Math.ceil(count + increment), target)}`;
-          setTimeout(updateCount, 10); // Repeat until the target is reached
-        } else {
-          number.innerText = `$${target}`; // Ensure it stops exactly at the target
+        // Add map tiles
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Add markers with colored dots and price labels
+        companies.forEach((company) => {
+            const marker = L.marker([company.latitude, company.longitude], {
+                icon: L.divIcon({
+                    className: "custom-marker",
+                    html: `
+                        <div style="display: inline-block; background: white; padding: 6px 10px; border-radius: 15px; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-size: 12px; font-weight: bold; color: black; position: relative;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 10px; height: 10px; border-radius: 50%; background: ${company.status}; margin-right: 5px;"></div>
+                                <span>$${company.outstanding}</span>
+                            </div>
+                        </div>
+                    `,
+                }),
+            }).addTo(map);
+
+            marker.bindPopup(`<strong>${company.name}</strong><br>Outstanding: $${company.outstanding}`);
+        });
+    </script>
+
+    <script>
+        function incrementNumbers() {
+            const numbers = document.querySelectorAll('.number');
+            numbers.forEach((number) => {
+                const updateCount = () => {
+                    const target = +number.getAttribute('data-target');
+                    const count = +number.innerText.replace('$', '');
+                    const increment = Math.ceil(target / 100);
+                    if (count < target) {
+                        number.innerText = `$${Math.min(Math.ceil(count + increment), target)}`;
+                        setTimeout(updateCount, 10);
+                    } else {
+                        number.innerText = `$${target}`;
+                    }
+                };
+                updateCount();
+            });
         }
-      };
+        window.onload = incrementNumbers;
+    </script>
 
-      updateCount();
-    });
-  }
-
-  // Trigger incrementNumbers when the window loads
-  window.onload = incrementNumbers;
-</script>
-
+    <!-- Dashboard Summary Boxes -->
     <div class="box-container">
         <div class="box">
-            <div class="number" data-target="10000">0</div>
+            <div class="number" data-target="10000">$0</div>
             <div class="description">Total Outstanding Amount</div>
         </div>
         <div class="box">
-            <div class="number" data-target="3000">0</div>
+            <div class="number" data-target="3000">$0</div>
             <div class="description">Vendor Payments</div>
         </div>
         <div class="box">
-            <div class="number" data-target="40000">0</div>
+            <div class="number" data-target="40000">$0</div>
             <div class="description">Expenses</div>
         </div>
         <div class="box">
-            <div class="number" data-target="15000">0</div>
+            <div class="number" data-target="15000">$0</div>
             <div class="description">Investments</div>
         </div>
     </div>
 
-
+    <!-- Priority Cards Grid -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
         <!-- Red Card -->
         <div style="background-color: #ffe6e6; border: 1px solid #ff4d4d; border-radius: 8px; padding: 20px; text-align: left; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
@@ -332,7 +367,7 @@ companies.forEach((company) => {
                 High Priority
             </h4>
             <p style="margin: 10px 0 0; color: #555;">
-                Companies marked in <strong><span style="color:red">red</span></strong> have outstanding payments for more than 90 days. Proceed with caution and ensure they clear their dues before approving new rentals."
+                Companies marked in <strong><span style="color:red">red</span></strong> have outstanding payments for more than 90 days. Proceed with caution and ensure they clear their dues before approving new rentals.
             </p>
         </div>
 
@@ -354,22 +389,103 @@ companies.forEach((company) => {
                 Low Priority
             </h4>
             <p style="margin: 10px 0 0; color: #555;">
-                Companies marked in <strong><span style="color:green">green</span></strong> have outstanding payments for less than 30 days. They are generally reliable, but a payment reminder may be beneficial before approving new rentals
+                Companies marked in <strong><span style="color:green">green</span></strong> have outstanding payments for less than 30 days. They are generally reliable, but a payment reminder may be beneficial before approving new rentals.
             </p>
         </div>
     </div>
 </div>
 
-    <footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top: auto;">
-        <div style="text-align: center;">
-            <h5 style="margin: 0; font-family: 'Roboto Medium';">LaptopOnRent.com</h5>
-            <p style="margin: 5px 0;">A Division of Ulka Enterprises</p>
-        </div>
-        <div style="text-align: center; margin-top: 20px;">
-            <p style="margin: 0;">&copy; 2025 LaptopOnRent.com - All Rights Reserved</p>
-        </div>
-    </footer>
+<footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top: auto;">
+    <div style="text-align: center;">
+        <h5 style="margin: 0; font-family: 'Roboto Medium';">LaptopOnRent.com</h5>
+        <p style="margin: 5px 0;">A Division of Ulka Enterprises</p>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="margin: 0;">&copy; 2025 LaptopOnRent.com - All Rights Reserved</p>
+    </div>
+</footer>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaWflJv13FOU9o1+X9ZJ3yRGT"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Xkk+u1FAdVQSZe2I9V9W9+8nbTov"
+        crossorigin="anonymous"></script>
+
+<script>
+    const companies = [
+        {
+            name: "Company A",
+            latitude: 40.754392588099314,
+            longitude: -73.99444959911963,
+            outstanding: 2000,
+            status: "green",
+        },
+        {
+            name: "Company B",
+            latitude: 33.99652217526842,
+            longitude: -118.47266064569892,
+            outstanding: 4500,
+            status: "orange",
+        },
+        {
+            name: "Company C",
+            latitude: 41.89672673566954,
+            longitude: -87.61683294542271,
+            outstanding: 12000,
+            status: "red",
+        },
+    ];
+
+    const map = L.map("map").setView([37.0902, -95.7129], 4);
+
+    // Add map tiles
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+    }).addTo(map);
+
+    // Add markers with colored dots and price labels
+    companies.forEach((company) => {
+        const marker = L.marker([company.latitude, company.longitude], {
+            icon: L.divIcon({
+                className: "custom-marker",
+                html: `
+                    <div style="display: inline-block; background: white; padding: 6px 10px; border-radius: 15px; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-size: 12px; font-weight: bold; color: black; position: relative;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 10px; height: 10px; border-radius: 50%; background: ${company.status}; margin-right: 5px;"></div>
+                            <span>$${company.outstanding}</span>
+                        </div>
+                    </div>
+                `,
+            }),
+        }).addTo(map);
+
+        marker.bindPopup(`<strong>${company.name}</strong><br>Outstanding: $${company.outstanding}`);
+    });
+</script>
+
+<script>
+  function incrementNumbers() {
+    const numbers = document.querySelectorAll('.number');
+    numbers.forEach((number) => {
+      const updateCount = () => {
+        const target = +number.getAttribute('data-target');
+        const count = +number.innerText.replace('$', '');
+        const increment = Math.ceil(target / 100);
+        if (count < target) {
+          number.innerText = `$${Math.min(Math.ceil(count + increment), target)}`;
+          setTimeout(updateCount, 10);
+        } else {
+          number.innerText = `$${target}`;
+        }
+      };
+      updateCount();
+    });
+  }
+  window.onload = incrementNumbers;
+</script>
 </body>
-
 </html>

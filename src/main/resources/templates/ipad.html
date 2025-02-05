@@ -18,3 +18,418 @@
 </div>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon-32x32.png}">-->
+<!--    <title>Ulka Enterprises</title>-->
+<!--    <style>-->
+<!--  html, body {-->
+<!--  overflow-x: hidden;-->
+<!--}-->
+<!--body {-->
+<!--  position: relative-->
+<!--}-->
+<!--  ul.breadcrumb {-->
+<!--  padding: 10px 16px;-->
+<!--  list-style: none;-->
+<!--  background-color: white;-->
+<!--  margin-left:30px;-->
+<!--}-->
+<!--ul.breadcrumb li {-->
+<!--  display: inline;-->
+<!--  font-size: 16px;-->
+<!--}-->
+<!--ul.breadcrumb li+li:before {-->
+<!--  padding: 8px;-->
+<!--  color: black;-->
+<!--  content: "/\00a0";-->
+<!--}-->
+<!--ul.breadcrumb li a {-->
+<!--  color: #184D94;-->
+<!--  text-decoration: none;-->
+<!--}-->
+<!--ul.breadcrumb li a:hover {-->
+<!--  color: #184D94;-->
+<!--  text-decoration: underline;-->
+<!--}-->
+<!--    .button {-->
+<!--    border-radius: 4px;-->
+<!--    background-color:#184D94;-->
+<!--  border: none;-->
+<!--  color: white;-->
+<!--  padding: 8px 40px;-->
+<!--  text-align: center;-->
+<!--  text-decoration: none;-->
+<!--  display: inline-block;-->
+<!--  font-size: 16px;-->
+<!--  margin: 4px 2px;-->
+<!--  cursor: pointer;-->
+<!--}-->
+<!--    .row1:after {-->
+<!--  content: "";-->
+<!--  display: table;-->
+<!--  clear: both;-->
+<!--}-->
+<!--    .column1{-->
+<!--    float: left;-->
+<!--  width: 50%;-->
+<!--  }-->
+<!--  .column2{-->
+<!--    float: left;-->
+<!--  width: 25%;-->
+<!--  }-->
+
+
+<!--    #parent1 { white-space: nowrap; }-->
+<!--.child1 { display: inline-block; }-->
+<!--    * {-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+
+<!--/* Position the image container (needed to position the left and right arrows) */-->
+<!--.container {-->
+<!--margin-left:100px;-->
+<!--&lt;!&ndash;position:left;&ndash;&gt;-->
+<!--&lt;!&ndash;margin-top:-30px;&ndash;&gt;-->
+
+
+
+<!--}-->
+
+<!--/* Hide the images by default */-->
+<!--.mySlides {-->
+<!--  display: none;-->
+<!--}-->
+
+<!--/* Add a pointer when hovering over the thumbnail images */-->
+<!--.cursor {-->
+<!--  cursor: pointer;-->
+<!--}-->
+
+<!--/* Next & previous buttons */-->
+<!--.prev,-->
+<!--.next {-->
+<!--  cursor: pointer;-->
+<!--  position: absolute;-->
+<!--  top: 40%;-->
+<!--  width: auto;-->
+<!--  margin-left:120px;-->
+<!--  margin-top: -50px;-->
+<!--  color: white;-->
+<!--  font-size: 15px;-->
+<!--  border-radius: 0 3px 3px 0;-->
+<!--&lt;!&ndash;  user-select: none;&ndash;&gt;-->
+<!--  -webkit-user-select: none;-->
+<!--}-->
+
+<!--/* Position the "next button" to the right */-->
+<!--.next {-->
+<!--  left:330px;-->
+<!--  border-radius: 1px 0 0 1px;-->
+<!--}-->
+
+
+<!--/* On hover, add a black background color with a little bit see-through */-->
+<!--.prev:hover,-->
+<!--.next:hover {-->
+<!--text-color:#8E8C8C;-->
+
+<!--}-->
+
+<!--/* Number text (1/3 etc) */-->
+<!--.numbertext {-->
+<!--  color: #f2f2f2;-->
+<!--  font-size: 12px;-->
+<!--  padding: 8px 12px;-->
+<!--  position: absolute;-->
+<!--  top: 0;-->
+<!--}-->
+
+<!--/* Container for image text */-->
+<!--.caption-container {-->
+<!--  text-align: center;-->
+<!--  background-color: #222;-->
+<!--  padding: 1px 8px;-->
+<!--  color: white;-->
+<!--}-->
+
+<!--.row:after {-->
+<!--  content: "";-->
+<!--  display: table;-->
+<!--  clear: both;-->
+<!--}-->
+
+<!--/* Add a transparency effect for thumnbail images */-->
+<!--.demo {-->
+<!--&lt;!&ndash;  opacity: 0.6;&ndash;&gt;-->
+<!--}-->
+
+<!--.active,-->
+<!--.demo:hover {-->
+<!--  opacity: 1;-->
+<!--}-->
+<!--    .arrow {-->
+<!--  border: solid #8E8C8C;-->
+<!--  border-width: 0 3px 3px 0;-->
+<!--  display: inline-block;-->
+<!--  padding: 6px;-->
+<!--}-->
+<!--.left {-->
+<!--  transform: rotate(135deg);-->
+<!--  -webkit-transform: rotate(135deg);-->
+<!--  margin-left:80px;-->
+<!--  margin-top:10px;-->
+<!--}-->
+<!--        #parent { white-space: nowrap; }-->
+<!--.child { display: inline-block; }-->
+<!--* {-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+
+<!--.column {-->
+
+<!--  width: 33.33%;-->
+<!--  padding: 5px;-->
+<!--  width: 20%; /* Four links of equal widths */-->
+<!--  text-align: center;-->
+<!--}-->
+
+
+<!--.row::after {-->
+<!--  content: "";-->
+<!--  clear: both;-->
+<!--  display: table;-->
+
+<!--}-->
+<!--#container {-->
+<!--  text-align: justify;-->
+<!--}-->
+
+
+<!--.navbar {-->
+<!--  width: 100%;-->
+<!--  background-color: #184D94;-->
+<!--  overflow: auto;-->
+<!--}-->
+
+<!--.navbar a {-->
+<!--  float: none;-->
+<!--  padding: 1px;-->
+<!--  color: white;-->
+<!--  text-decoration: none;-->
+<!--  font-size: 17px;-->
+<!--  width: 10%; /* Four links of equal widths */-->
+<!--  text-align: center;-->
+<!--}-->
+
+<!--.navbar a:hover {-->
+<!--background-color:white;-->
+<!--}-->
+
+
+<!--@media screen and (max-width: 500px) {-->
+<!--  .navbar a {-->
+<!--    float: none;-->
+<!--    display: block;-->
+<!--    width: 100%;-->
+<!--    text-align: left;-->
+<!--  }-->
+<!--.navbar a.active1 {-->
+<!--  color:#142F6E;-->
+<!--  background-color: white;-->
+<!--}-->
+
+<!--}-->
+
+
+<!--    </style>-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>-->
+
+<!--    <meta charset="UTF-8">-->
+
+<!--    <div id="parent">-->
+<!--        <div class="child">-->
+<!--            <a  style="text-decoration:none;" th:href="@{/}"><h2 style="font-family: Roboto Medium ; color:#184D94 ; margin-left: 150px; margin-top: 20px; margin-bottom: 10px;">-->
+<!--                LAPTOPONRENT.com-->
+<!--            </h2></a></div>-->
+<!--        <a th:href="@{/}">-->
+<!--            <div class="child" style="margin-left: 20px ; font-family: Roboto Regular ; color:#76777A">A DIVISION OF ULKA ENTERPRISES</div>-->
+<!--        </a>-->
+<!--        <div class="child" style="float:right;margin-right:50px;">-->
+<!--            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises" style="width:6rem;"/>-->
+<!--        </div>-->
+<!--        <hr style="margin-top:-1px">-->
+<!--    </div>-->
+
+<!--</head>-->
+<!--<body style=" display: flex; flex-direction: column; min-height: 100vh; margin: 0;">-->
+<!--<div style="flex:1;">-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">-->
+<!--    &lt;!&ndash;<a th:href="@{/}"><i class="arrow left"></i></a>&ndash;&gt;-->
+<!--    <ul class="breadcrumb">-->
+<!--        <li><a th:href="@{/}">Home</a></li>-->
+<!--        <li><a th:href="@{/Devices}">Devices</a></li>-->
+<!--        <li style="color:black;">iPhone</li>-->
+<!--    </ul>-->
+<!--    <div class="row">-->
+<!--        <div class="column1">-->
+<!--            <div class="container">-->
+
+<!--                <div id="iphoneCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 18rem; margin: auto; margin-top: 100px;">-->
+<!--                    &lt;!&ndash; Indicators &ndash;&gt;-->
+<!--                    <ol class="carousel-indicators">-->
+<!--                        <li data-bs-target="#iphoneCarousel" data-bs-slide-to="0" class="active"></li>-->
+<!--                        <li data-bs-target="#iphoneCarousel" data-bs-slide-to="1"></li>-->
+<!--                    </ol>-->
+
+<!--                    &lt;!&ndash; Carousel items &ndash;&gt;-->
+<!--                    <div class="carousel-inner">-->
+<!--                        <div class="carousel-item active">-->
+<!--                            <img th:src="@{/images/iphone1.webp}" class="d-block w-100" alt="iPhone 1" style="border-radius: 5px;">-->
+<!--                        </div>-->
+<!--                        <div class="carousel-item">-->
+<!--                            <img th:src="@{/images/iphone2.webp}" class="d-block w-100" alt="iPhone 2" style="border-radius: 5px;">-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash; Controls &ndash;&gt;-->
+<!--                    <a class="carousel-control-prev" href="#iphoneCarousel" role="button" data-bs-slide="prev">-->
+<!--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                        <span class="visually-hidden">Previous</span>-->
+<!--                    </a>-->
+<!--                    <a class="carousel-control-next" href="#iphoneCarousel" role="button" data-bs-slide="next">-->
+<!--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                        <span class="visually-hidden">Next</span>-->
+<!--                    </a>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="column1">-->
+<!--            <h3 style="color:#000000;font-family:Open Sans Semibold;margin-left:-15px">iPhone</h3>-->
+<!--            <br>-->
+<!--            <h4 style="color:#184D94;font-family:Open Sans Semibold;margin-left:-15px">Monthly Rent - ₹ 2000/month</h4>-->
+<!--            <br>-->
+<!--            <div class="row">-->
+<!--                <div class="column2">-->
+<!--                    <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">Model</h5>-->
+<!--                </div>-->
+<!--                <br><br>-->
+<!--                <div class="column2" style="margin-left:-80px;">-->
+<!--                    <select name="size"   style="background-color:#B2B2B2; color:white;padding: 0px 32px;">-->
+<!--                        <option value="13">13</option>-->
+<!--                        <option value="14">14</option>-->
+<!--                        <option value="16">16</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <div class="column2">-->
+<!--                    <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">OS</h5>-->
+<!--                </div>-->
+<!--                <div class="column2" style="margin-left:-80px;">-->
+<!--                    <select name="size"   style="background-color:#B2B2B2; color:white;padding: 0px 32px;">-->
+<!--                        <option value="Sonoma">IOS 13</option>-->
+<!--                        <option value="Big Sur">IOS 14</option>-->
+<!--                        <option value="Catalina">IOS 15</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br><br>-->
+<!--            <div class="row">-->
+<!--                <div class = "column2">-->
+<!--                    <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;"></h5>-->
+<!--                </div>-->
+
+
+<!--            </div>-->
+<!--            <br><br>-->
+<!--            <div class="row">-->
+<!--                <div class="column2">-->
+<!--                    <h5 style="color:#4B4B4B;font-family:Open Sans Semibold;">Storage</h5>-->
+<!--                </div>-->
+<!--                <div class="column2"style="margin-left:-80px;">-->
+<!--                    <select name="size"   style="background-color:#B2B2B2; color:white;padding: 0px 32px;">-->
+<!--                        <option value="i5">128 GB</option>-->
+<!--                        <option value="i7">256 GB</option>-->
+<!--                        <option value="i9">512 GB</option>-->
+<!--                    </select>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br><br>-->
+<!--            <div class="row">-->
+<!--                <div class="column2">-->
+<!--                    <a href="https://api.whatsapp.com/send?phone=919922001413&text= Hello, I want to enquire about workstations!"><button class="button">Know More-->
+<!--                    </button></a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="column1" style="margin-top: 20px;background-color:#F6F7F8;">-->
+<!--            <img th:src="@{/images/IMG_4446.jpg}" alt="Scan Code" style="width:10rem;margin-left:230px;margin-top:80px;"/>-->
+<!--            <h6 style="margin-left:230px;color:#707070;">Google Pay QR Code</h6>-->
+<!--        </div>-->
+<!--        <div class="column1" style="margin-top: 20px;background-color:#F6F7F8;">-->
+<!--            <h5 style="margin-top:20px;color:#184D94;font-family:Open Sans Bold;margin-left:-15px;"><u>Product Details</u></h5>-->
+<!--            <p style="margin-top:15px;margin-left:-15px;color:#707070;font-family:Open Sans Regular">Get the latest Apple iPhone on rent for work, travel, or personal use without long-term commitments. Enjoy top-tier performance, high-quality cameras, and a sleek design at an affordable price.<br>-->
+<!--            </p>-->
+<!--            <p style="margin-left:-15px;color:#707070;font-family:Open Sans Regular">-->
+<!--                Dimensions<br>-->
+<!--                5.78 inches tall and 2.82 inches wide-->
+<!--            </p>-->
+<!--            <p style="margin-left:-15px;color:#707070;font-family:Open Sans Regular">-->
+<!--                Safety & Usage<br>-->
+<!--                Avoid touching the workstation with dirty/ oily hands.<br>-->
+<!--                Keep the iPhone locked to protect your data.-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--let slideIndex = 1;-->
+<!--showSlides(slideIndex);-->
+
+<!--function plusSlides(n) {-->
+<!--  showSlides(slideIndex += n);-->
+<!--}-->
+
+<!--function currentSlide(n) {-->
+<!--  showSlides(slideIndex = n);-->
+<!--}-->
+
+<!--function showSlides(n) {-->
+<!--  let i;-->
+<!--  let slides = document.getElementsByClassName("mySlides");-->
+<!--  let dots = document.getElementsByClassName("demo");-->
+<!--  let captionText = document.getElementById("caption");-->
+<!--  if (n > slides.length) {slideIndex = 1}-->
+<!--  if (n < 1) {slideIndex = slides.length}-->
+<!--  for (i = 0; i < slides.length; i++) {-->
+<!--    slides[i].style.display = "none";-->
+<!--  }-->
+<!--  for (i = 0; i < dots.length; i++) {-->
+<!--    dots[i].className = dots[i].className.replace(" active", "");-->
+<!--  }-->
+<!--  slides[slideIndex-1].style.display = "block";-->
+<!--  dots[slideIndex-1].className += " active";-->
+<!--  captionText.innerHTML = dots[slideIndex-1].alt;-->
+<!--}-->
+<!--</script>-->
+<!--</div>-->
+<!--<footer style="background-color: #142F6E; color: white; padding: 20px 0; margin-top:auto;">-->
+<!--    <div style="text-align: center;">-->
+<!--        <h5 style="margin: 0; font-family: 'Roboto Medium';">LaptopOnRent.com</h5>-->
+<!--        <p style="margin: 5px 0;">A Division of Ulka Enterprises</p>-->
+<!--    </div>-->
+<!--    <div style="text-align: center; margin-top: 20px;">-->
+<!--        <p style="margin: 0;">&copy; 2025 LaptopOnRent.com - All Rights Reserved</p>-->
+<!--    </div>-->
+
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->
+
