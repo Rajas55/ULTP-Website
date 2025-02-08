@@ -1,3 +1,580 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Ulka Enterprises - MacBook Rental</title>-->
+<!--    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon-32x32.png}">-->
+
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet"-->
+<!--          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"-->
+<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"-->
+<!--          crossorigin="anonymous">-->
+
+<!--    <style>-->
+<!--      body {-->
+<!--        overflow-x: hidden;-->
+<!--      }-->
+
+<!--      /* Header styling */-->
+<!--      .header-container {-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--        justify-content: space-between;-->
+<!--        flex-wrap: wrap;-->
+<!--      }-->
+<!--      .header-logo h2 {-->
+<!--        font-family: 'Roboto Medium', sans-serif;-->
+<!--        color: #184D94;-->
+<!--        margin: 0;-->
+<!--      }-->
+<!--      .header-logo .subtext {-->
+<!--        font-family: 'Roboto Regular', sans-serif;-->
+<!--        color: #76777A;-->
+<!--      }-->
+<!--      .header-img img {-->
+<!--        width: 6rem;-->
+<!--      }-->
+<!--      /* Hide logo image on mobile */-->
+<!--      @media (max-width: 576px) {-->
+<!--        .header-container {-->
+<!--          flex-direction: column;-->
+<!--          text-align: center;-->
+<!--        }-->
+<!--        .header-img {-->
+<!--          display: none;-->
+<!--        }-->
+<!--        .header-logo h2 {-->
+<!--          font-size: 1.5rem;-->
+<!--        }-->
+<!--        .header-logo .subtext {-->
+<!--          font-size: 0.9rem;-->
+<!--        }-->
+<!--      }-->
+
+<!--      /* Breadcrumb styling */-->
+<!--      .breadcrumb {-->
+<!--        background-color: #fff;-->
+<!--        padding: 10px 16px;-->
+<!--        margin: 20px 0;-->
+<!--      }-->
+<!--      .breadcrumb li {-->
+<!--        display: inline;-->
+<!--        font-size: 16px;-->
+<!--      }-->
+<!--      .breadcrumb li+li:before {-->
+<!--        padding: 8px;-->
+<!--        color: black;-->
+<!--        content: "/\00a0";-->
+<!--      }-->
+<!--      .breadcrumb li a {-->
+<!--        color: #184D94;-->
+<!--        text-decoration: none;-->
+<!--      }-->
+<!--      .breadcrumb li a:hover {-->
+<!--        text-decoration: underline;-->
+<!--      }-->
+
+<!--      /* Custom button style */-->
+<!--      .btn-custom {-->
+<!--        border-radius: 4px;-->
+<!--        background-color: #184D94;-->
+<!--        border: none;-->
+<!--        color: white;-->
+<!--        padding: 8px 40px;-->
+<!--        font-size: 16px;-->
+<!--        cursor: pointer;-->
+<!--      }-->
+
+<!--      /* Section padding */-->
+<!--      .section-padding {-->
+<!--        padding: 20px 0;-->
+<!--      }-->
+
+<!--      /* Carousel image styling */-->
+<!--      .carousel-inner img {-->
+<!--        border-radius: 5px;-->
+<!--      }-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Google Fonts &ndash;&gt;-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,500,700" rel="stylesheet">-->
+<!--</head>-->
+<!--<body class="d-flex flex-column min-vh-100">-->
+
+<!--&lt;!&ndash; Header &ndash;&gt;-->
+<!--<header class="container-fluid bg-white py-3">-->
+<!--    <div class="container header-container">-->
+<!--        <div class="header-logo">-->
+<!--            <a th:href="@{/}" style="text-decoration: none;">-->
+<!--                <h2>LAPTOPONRENT.com</h2>-->
+<!--            </a>-->
+<!--            <div class="subtext">A DIVISION OF ULKA ENTERPRISES</div>-->
+<!--        </div>-->
+<!--        <div class="header-img">-->
+<!--            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <hr class="mt-2">-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Breadcrumb &ndash;&gt;-->
+<!--<div class="container">-->
+<!--    <ul class="breadcrumb">-->
+<!--        <li><a th:href="@{/}">Home</a></li>-->
+<!--        <li><a th:href="@{/Devices}">Devices</a></li>-->
+<!--        <li>MacBook</li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Main Content &ndash;&gt;-->
+<!--<main class="container flex-grow-1">-->
+<!--    <div class="row section-padding">-->
+<!--        &lt;!&ndash; Carousel Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6 mb-4">-->
+<!--            <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">-->
+<!--                &lt;!&ndash; Indicators &ndash;&gt;-->
+<!--                <ol class="carousel-indicators">-->
+<!--                    <li data-target="#productCarousel" data-slide-to="0" class="active"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="1"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="2"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="3"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="4"></li>-->
+<!--                </ol>-->
+<!--                &lt;!&ndash; Carousel Items &ndash;&gt;-->
+<!--                <div class="carousel-inner">-->
+<!--                    <div class="carousel-item active">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/3be3defe-cf93-4e82-b55e-fca10152574322291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 1">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/0230bb7f-8661-418a-8026-f13e9969360222291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 2">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/5f00eff5-a7f6-4e11-b996-a0fb4257ebce22291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 3">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/e2b85f64-63de-4830-9bb3-a70e8a024fbd22291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 4">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/105d2c79-321b-4f23-8927-e0dc4850bef022291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 5">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Controls &ndash;&gt;-->
+<!--                <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">-->
+<!--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                    <span class="sr-only">Previous</span>-->
+<!--                </a>-->
+<!--                <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">-->
+<!--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                    <span class="sr-only">Next</span>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Product Details Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6">-->
+<!--            <h3 class="text-dark">MacBook</h3>-->
+<!--            <h4 class="text-primary">Monthly Rent - $45/month</h4>-->
+<!--            <div class="row mt-4">-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">Size</h5>-->
+<!--                    <select name="size" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="13 inch">13 inch</option>-->
+<!--                        <option value="14 inch">14 inch</option>-->
+<!--                        <option value="16 inch">16 inch</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">OS</h5>-->
+<!--                    <select name="os" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="Sonoma">Sonoma</option>-->
+<!--                        <option value="Big Sur">Big Sur</option>-->
+<!--                        <option value="Catalina">Catalina</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">RAM</h5>-->
+<!--                    <select name="ram" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="4 GB">4 GB</option>-->
+<!--                        <option value="8 GB">8 GB</option>-->
+<!--                        <option value="16 GB">16 GB</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">Processor</h5>-->
+<!--                    <select name="processor" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="i5">i5</option>-->
+<!--                        <option value="i7">i7</option>-->
+<!--                        <option value="i9">i9</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">Storage</h5>-->
+<!--                    <select name="storage" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="128 GB">128 GB</option>-->
+<!--                        <option value="256 GB">256 GB</option>-->
+<!--                        <option value="512 GB">512 GB</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="mt-4">-->
+<!--                <a href="https://api.whatsapp.com/send?phone=919922001413&text=Hello, I want to enquire about laptops">-->
+<!--                    <button class="btn btn-custom">Click to Chat</button>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Additional Information Section &ndash;&gt;-->
+<!--    <div class="row section-padding">-->
+<!--        &lt;!&ndash; QR Code Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6 text-center mb-4">-->
+<!--            <img th:src="@{/images/IMG_4446.jpg}" alt="Scan Code" style="width:10rem;">-->
+<!--            <h6 class="text-muted">Google Pay QR Code</h6>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Product Details Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6">-->
+<!--            <h5 class="text-primary"><u>Product Details</u></h5>-->
+<!--            <p class="text-secondary">-->
+<!--                Your gateway to power-packed performance and ideas!<br>-->
+<!--                MacBook Pro is bundled with seventh-generation Intel Core i5 processor<br>-->
+<!--                to ensure that wherever you go, you function at your highest potential and speed.<br>-->
+<!--                This 13.3-inch display laptop is one of the thinnest, brightest and most intelligent!-->
+<!--            </p>-->
+<!--            <p class="text-secondary"><strong>Dimensions:</strong><br>-->
+<!--                0.4"H x 11.96"W x 7.87"D-->
+<!--            </p>-->
+<!--            <p class="text-secondary"><strong>Safety & Usage:</strong><br>-->
+<!--                Avoid touching the laptop with dirty/oily hands.<br>-->
+<!--                Use a sturdy laptop bag/case to keep it safe.<br>-->
+<!--                Keep your laptop locked to protect your data.-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer class="bg-dark text-white py-3 mt-auto">-->
+<!--    <div class="container text-center">-->
+<!--        <h5 class="mb-0" style="font-family: 'Roboto Medium';">LaptopOnRent.com</h5>-->
+<!--        <p class="mb-0">A Division of Ulka Enterprises</p>-->
+<!--        <small>&copy; 2025 LaptopOnRent.com - All Rights Reserved</small>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<!--&lt;!&ndash; Bootstrap JS and dependencies &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaWflJv13FOU9o1+X9ZJ3yRGT"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy+U6Q2nLFN/JOZx1PkF9i+U6S2m0Zh2Je46xj3"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Ulka Enterprises - MacBook Rental</title>-->
+<!--    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon-32x32.png}">-->
+
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet"-->
+<!--          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"-->
+<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"-->
+<!--          crossorigin="anonymous">-->
+
+<!--    <style>-->
+<!--    body {-->
+<!--      overflow-x: hidden;-->
+<!--    }-->
+
+<!--    /* Header styling */-->
+<!--    .header-container {-->
+<!--      display: flex;-->
+<!--      align-items: center;-->
+<!--      justify-content: space-between;-->
+<!--      flex-wrap: wrap;-->
+<!--    }-->
+<!--    .header-logo h2 {-->
+<!--      font-family: 'Roboto Medium', sans-serif;-->
+<!--      color: #184D94;-->
+<!--      margin: 0;-->
+<!--    }-->
+<!--    .header-logo .subtext {-->
+<!--      font-family: 'Roboto Regular', sans-serif;-->
+<!--      color: #76777A;-->
+<!--    }-->
+<!--    .header-img img {-->
+<!--      width: 6rem;-->
+<!--    }-->
+<!--    /* Hide logo image on mobile */-->
+<!--    @media (max-width: 576px) {-->
+<!--      .header-container {-->
+<!--        flex-direction: column;-->
+<!--        text-align: center;-->
+<!--      }-->
+<!--      .header-img {-->
+<!--        display: none;-->
+<!--      }-->
+<!--      .header-logo h2 {-->
+<!--        font-size: 1.5rem;-->
+<!--      }-->
+<!--      .header-logo .subtext {-->
+<!--        font-size: 0.9rem;-->
+<!--      }-->
+<!--    }-->
+
+<!--    /* Breadcrumb styling */-->
+<!--    .breadcrumb {-->
+<!--      background-color: #fff;-->
+<!--      padding: 10px 16px;-->
+<!--      margin: 20px 0;-->
+<!--    }-->
+<!--    .breadcrumb li {-->
+<!--      display: inline;-->
+<!--      font-size: 16px;-->
+<!--    }-->
+<!--    .breadcrumb li+li:before {-->
+<!--      padding: 8px;-->
+<!--      color: black;-->
+<!--      content: "/\00a0";-->
+<!--    }-->
+<!--    .breadcrumb li a {-->
+<!--      color: #184D94;-->
+<!--      text-decoration: none;-->
+<!--    }-->
+<!--    .breadcrumb li a:hover {-->
+<!--      text-decoration: underline;-->
+<!--    }-->
+
+<!--    /* Custom button style */-->
+<!--    .btn-custom {-->
+<!--      border-radius: 4px;-->
+<!--      background-color: #184D94;-->
+<!--      border: none;-->
+<!--      color: white;-->
+<!--      padding: 8px 40px;-->
+<!--      font-size: 16px;-->
+<!--      cursor: pointer;-->
+<!--    }-->
+
+<!--    /* Section padding (reduced from 20px to 10px vertical spacing) */-->
+<!--    .section-padding {-->
+<!--      padding: 10px 0;-->
+<!--    }-->
+
+<!--    /* Carousel image styling */-->
+<!--    .carousel-inner img {-->
+<!--      border-radius: 5px;-->
+<!--    }-->
+<!--  </style>-->
+
+<!--    &lt;!&ndash; Google Fonts &ndash;&gt;-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,500,700" rel="stylesheet">-->
+<!--</head>-->
+<!--<body class="d-flex flex-column min-vh-100">-->
+
+<!--&lt;!&ndash; Header &ndash;&gt;-->
+<!--<header class="container-fluid bg-white py-3">-->
+<!--    <div class="container header-container">-->
+<!--        <div class="header-logo">-->
+<!--            <a th:href="@{/}" style="text-decoration: none;">-->
+<!--                <h2>LAPTOPONRENT.com</h2>-->
+<!--            </a>-->
+<!--            <div class="subtext">A DIVISION OF ULKA ENTERPRISES</div>-->
+<!--        </div>-->
+<!--        <div class="header-img">-->
+<!--            <img th:src="@{/images/Laptoponrentlogo-removebg-preview.png}" alt="Ulka Enterprises">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <hr class="mt-2">-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Breadcrumb &ndash;&gt;-->
+<!--<div class="container">-->
+<!--    <ul class="breadcrumb">-->
+<!--        <li><a th:href="@{/}">Home</a></li>-->
+<!--        <li><a th:href="@{/Devices}">Devices</a></li>-->
+<!--        <li>MacBook</li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Main Content &ndash;&gt;-->
+<!--<main class="container flex-grow-1">-->
+<!--    <div class="row section-padding">-->
+<!--        &lt;!&ndash; Carousel Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6 mb-2">  &lt;!&ndash; Reduced bottom margin from mb-4 to mb-2 &ndash;&gt;-->
+<!--            <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">-->
+<!--                &lt;!&ndash; Indicators &ndash;&gt;-->
+<!--                <ol class="carousel-indicators">-->
+<!--                    <li data-target="#productCarousel" data-slide-to="0" class="active"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="1"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="2"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="3"></li>-->
+<!--                    <li data-target="#productCarousel" data-slide-to="4"></li>-->
+<!--                </ol>-->
+<!--                &lt;!&ndash; Carousel Items &ndash;&gt;-->
+<!--                <div class="carousel-inner">-->
+<!--                    <div class="carousel-item active">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/3be3defe-cf93-4e82-b55e-fca10152574322291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 1">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/0230bb7f-8661-418a-8026-f13e9969360222291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 2">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/5f00eff5-a7f6-4e11-b996-a0fb4257ebce22291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 3">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/e2b85f64-63de-4830-9bb3-a70e8a024fbd22291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 4">-->
+<!--                    </div>-->
+<!--                    <div class="carousel-item">-->
+<!--                        <img src="https://d2xamzlzrdbdbn.cloudfront.net/products/105d2c79-321b-4f23-8927-e0dc4850bef022291031.jpg"-->
+<!--                             class="d-block w-100" alt="Product 5">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Controls &ndash;&gt;-->
+<!--                <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">-->
+<!--                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                    <span class="sr-only">Previous</span>-->
+<!--                </a>-->
+<!--                <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">-->
+<!--                    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                    <span class="sr-only">Next</span>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Product Details Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6">-->
+<!--            <h3 class="text-dark">MacBook</h3>-->
+<!--            <h4 class="text-primary">Monthly Rent - $45/month</h4>-->
+<!--            <div class="row mt-4">-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">Size</h5>-->
+<!--                    <select name="size" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="13 inch">13 inch</option>-->
+<!--                        <option value="14 inch">14 inch</option>-->
+<!--                        <option value="16 inch">16 inch</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">OS</h5>-->
+<!--                    <select name="os" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="Sonoma">Sonoma</option>-->
+<!--                        <option value="Big Sur">Big Sur</option>-->
+<!--                        <option value="Catalina">Catalina</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">RAM</h5>-->
+<!--                    <select name="ram" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="4 GB">4 GB</option>-->
+<!--                        <option value="8 GB">8 GB</option>-->
+<!--                        <option value="16 GB">16 GB</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">Processor</h5>-->
+<!--                    <select name="processor" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="i5">i5</option>-->
+<!--                        <option value="i7">i7</option>-->
+<!--                        <option value="i9">i9</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-md-6 mb-3">-->
+<!--                    <h5 class="text-secondary">Storage</h5>-->
+<!--                    <select name="storage" class="form-control" style="background-color:#B2B2B2; color:white;">-->
+<!--                        <option value="128 GB">128 GB</option>-->
+<!--                        <option value="256 GB">256 GB</option>-->
+<!--                        <option value="512 GB">512 GB</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="mt-4">-->
+<!--                <a href="https://api.whatsapp.com/send?phone=919922001413&text=Hello, I want to enquire about laptops">-->
+<!--                    <button class="btn btn-custom">Click to Chat</button>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Additional Information Section &ndash;&gt;-->
+<!--    <div class="row section-padding">-->
+<!--        &lt;!&ndash; QR Code Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6 text-center mb-4">-->
+<!--            <img th:src="@{/images/IMG_4446.jpg}" alt="Scan Code" style="width:10rem;">-->
+<!--            <h6 class="text-muted">Google Pay QR Code</h6>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Product Details Column &ndash;&gt;-->
+<!--        <div class="col-12 col-md-6">-->
+<!--            <h5 class="text-primary"><u>Product Details</u></h5>-->
+<!--            <p class="text-secondary">-->
+<!--                Your gateway to power-packed performance and ideas!<br>-->
+<!--                MacBook Pro is bundled with seventh-generation Intel Core i5 processor<br>-->
+<!--                to ensure that wherever you go, you function at your highest potential and speed.<br>-->
+<!--                This 13.3-inch display laptop is one of the thinnest, brightest and most intelligent!-->
+<!--            </p>-->
+<!--            <p class="text-secondary"><strong>Dimensions:</strong><br>-->
+<!--                0.4"H x 11.96"W x 7.87"D-->
+<!--            </p>-->
+<!--            <p class="text-secondary"><strong>Safety & Usage:</strong><br>-->
+<!--                Avoid touching the laptop with dirty/oily hands.<br>-->
+<!--                Use a sturdy laptop bag/case to keep it safe.<br>-->
+<!--                Keep your laptop locked to protect your data.-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer class="bg-dark text-white py-3 mt-auto">-->
+<!--    <div class="container text-center">-->
+<!--        <h5 class="mb-0" style="font-family: 'Roboto Medium';">LaptopOnRent.com</h5>-->
+<!--        <p class="mb-0">A Division of Ulka Enterprises</p>-->
+<!--        <small>&copy; 2025 LaptopOnRent.com - All Rights Reserved</small>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<!--&lt;!&ndash; Bootstrap JS and dependencies &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaWflJv13FOU9o1+X9ZJ3yRGT"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy+U6Q2nLFN/JOZx1PkF9i+U6S2m0Zh2Je46xj3"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -13,90 +590,90 @@
           crossorigin="anonymous">
 
     <style>
-      body {
-        overflow-x: hidden;
-      }
+    body {
+      overflow-x: hidden;
+    }
 
-      /* Header styling */
+    /* Header styling */
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .header-logo h2 {
+      font-family: 'Roboto Medium', sans-serif;
+      color: #184D94;
+      margin: 0;
+    }
+    .header-logo .subtext {
+      font-family: 'Roboto Regular', sans-serif;
+      color: #76777A;
+    }
+    .header-img img {
+      width: 6rem;
+    }
+    /* Hide logo image on mobile */
+    @media (max-width: 576px) {
       .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-img {
+        display: none;
       }
       .header-logo h2 {
-        font-family: 'Roboto Medium', sans-serif;
-        color: #184D94;
-        margin: 0;
+        font-size: 1.5rem;
       }
       .header-logo .subtext {
-        font-family: 'Roboto Regular', sans-serif;
-        color: #76777A;
+        font-size: 0.9rem;
       }
-      .header-img img {
-        width: 6rem;
-      }
-      /* Hide logo image on mobile */
-      @media (max-width: 576px) {
-        .header-container {
-          flex-direction: column;
-          text-align: center;
-        }
-        .header-img {
-          display: none;
-        }
-        .header-logo h2 {
-          font-size: 1.5rem;
-        }
-        .header-logo .subtext {
-          font-size: 0.9rem;
-        }
-      }
+    }
 
-      /* Breadcrumb styling */
-      .breadcrumb {
-        background-color: #fff;
-        padding: 10px 16px;
-        margin: 20px 0;
-      }
-      .breadcrumb li {
-        display: inline;
-        font-size: 16px;
-      }
-      .breadcrumb li+li:before {
-        padding: 8px;
-        color: black;
-        content: "/\00a0";
-      }
-      .breadcrumb li a {
-        color: #184D94;
-        text-decoration: none;
-      }
-      .breadcrumb li a:hover {
-        text-decoration: underline;
-      }
+    /* Breadcrumb styling */
+    .breadcrumb {
+      background-color: #fff;
+      padding: 10px 16px;
+      margin: 20px 0;
+    }
+    .breadcrumb li {
+      display: inline;
+      font-size: 16px;
+    }
+    .breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+    .breadcrumb li a {
+      color: #184D94;
+      text-decoration: none;
+    }
+    .breadcrumb li a:hover {
+      text-decoration: underline;
+    }
 
-      /* Custom button style */
-      .btn-custom {
-        border-radius: 4px;
-        background-color: #184D94;
-        border: none;
-        color: white;
-        padding: 8px 40px;
-        font-size: 16px;
-        cursor: pointer;
-      }
+    /* Custom button style */
+    .btn-custom {
+      border-radius: 4px;
+      background-color: #184D94;
+      border: none;
+      color: white;
+      padding: 8px 40px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-      /* Section padding */
-      .section-padding {
-        padding: 20px 0;
-      }
+    /* Section padding (reduced vertical spacing) */
+    .section-padding {
+      padding: 10px 0;
+    }
 
-      /* Carousel image styling */
-      .carousel-inner img {
-        border-radius: 5px;
-      }
-    </style>
+    /* Carousel image styling */
+    .carousel-inner img {
+      border-radius: 5px;
+    }
+  </style>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,500,700" rel="stylesheet">
@@ -132,7 +709,7 @@
 <main class="container flex-grow-1">
     <div class="row section-padding">
         <!-- Carousel Column -->
-        <div class="col-12 col-md-6 mb-4">
+        <div class="col-12 col-md-6 mb-2">
             <div id="productCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -180,7 +757,7 @@
         <!-- Product Details Column -->
         <div class="col-12 col-md-6">
             <h3 class="text-dark">MacBook</h3>
-            <h4 class="text-primary">Monthly Rent - ₹ 3549/month</h4>
+            <h4 class="text-primary">Monthly Rent - $45/month</h4>
             <div class="row mt-4">
                 <div class="col-12 col-md-6 mb-3">
                     <h5 class="text-secondary">Size</h5>
@@ -235,32 +812,32 @@
         </div>
     </div>
 
-    <!-- Additional Information Section -->
-    <div class="row section-padding">
-        <!-- QR Code Column -->
-        <div class="col-12 col-md-6 text-center mb-4">
-            <img th:src="@{/images/IMG_4446.jpg}" alt="Scan Code" style="width:10rem;">
-            <h6 class="text-muted">Google Pay QR Code</h6>
-        </div>
-        <!-- Product Details Column -->
-        <div class="col-12 col-md-6">
-            <h5 class="text-primary"><u>Product Details</u></h5>
-            <p class="text-secondary">
-                Your gateway to power-packed performance and ideas!<br>
-                MacBook Pro is bundled with seventh-generation Intel Core i5 processor<br>
-                to ensure that wherever you go, you function at your highest potential and speed.<br>
-                This 13.3-inch display laptop is one of the thinnest, brightest and most intelligent!
-            </p>
-            <p class="text-secondary"><strong>Dimensions:</strong><br>
-                0.4"H x 11.96"W x 7.87"D
-            </p>
-            <p class="text-secondary"><strong>Safety & Usage:</strong><br>
-                Avoid touching the laptop with dirty/oily hands.<br>
-                Use a sturdy laptop bag/case to keep it safe.<br>
-                Keep your laptop locked to protect your data.
-            </p>
-        </div>
-    </div>
+    <!-- Additional Information Section with grey background end-to-end -->
+            <div class="row section-padding">
+                <!-- QR Code Column -->
+                <div class="col-12 col-md-6 text-center mb-4">
+                    <img th:src="@{/images/IMG_4446.jpg}" alt="Scan Code" style="width:10rem;">
+                    <h6 class="text-muted">Google Pay QR Code</h6>
+                </div>
+                <!-- Product Details Column -->
+                <div class="col-12 col-md-6">
+                    <h5 class="text-primary"><u>Product Details</u></h5>
+                    <p class="text-secondary">
+                        Your gateway to power-packed performance and ideas!<br>
+                        MacBook Pro is bundled with seventh-generation Intel Core i5 processor<br>
+                        to ensure that wherever you go, you function at your highest potential and speed.<br>
+                        This 13.3-inch display laptop is one of the thinnest, brightest and most intelligent!
+                    </p>
+                    <p class="text-secondary"><strong>Dimensions:</strong><br>
+                        0.4"H x 11.96"W x 7.87"D
+                    </p>
+                    <p class="text-secondary"><strong>Safety & Usage:</strong><br>
+                        Avoid touching the laptop with dirty/oily hands.<br>
+                        Use a sturdy laptop bag/case to keep it safe.<br>
+                        Keep your laptop locked to protect your data.
+                    </p>
+                </div>
+            </div>
 </main>
 
 <!-- Footer -->
